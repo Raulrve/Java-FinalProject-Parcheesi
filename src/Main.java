@@ -11,7 +11,7 @@ public class Main {
 		InitialMenu menu = new InitialMenu();
 		
 		menu.createBackground();
-		
+		menu.choosePlayers();
 		
 	}
 }

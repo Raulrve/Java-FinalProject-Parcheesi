@@ -11,23 +11,24 @@ import javax.swing.JPanel;
 public class InitialMenu extends JFrame{
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	public void Title() {
+	public void choosePlayers() {
 		
+		JPanel playerNumber = new JPanel();
+		
+		playerNumber.setLocation(400,500);
+		playerNumber.setSize(600,200);
+		playerNumber.setBackground(backgroundColor);
+		JLabel howMany = new JLabel("Please choose a number of players");
+		howMany.setFont(new Font("Calibri",Font.PLAIN,25));
+		
+		playerNumber.add(howMany);
+		background.add(playerNumber);
 		
 	}
 	
 	public void createBackground() {
 		
-		Color backgroundColor = new Color(250,225,192);
 		
-		JPanel background = new JPanel();
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
 		
@@ -36,19 +37,11 @@ public class InitialMenu extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel playerNumber = new JPanel();
-		
-		playerNumber.setLocation(700,600);
-		playerNumber.setSize(200,200);
-		playerNumber.setBackground(backgroundColor);
-		JLabel howMany = new JLabel("Please choose how many players ");
-		
-		playerNumber.add(howMany);
-		background.add(playerNumber);
-		
-		
-		
 	}
+	
+	private Color backgroundColor = new Color(250,225,192);
+	private JPanel background = new JPanel();
+	private int playerNumber;
 	
 	
 }
