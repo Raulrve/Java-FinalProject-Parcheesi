@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Main {
 	
@@ -10,8 +13,17 @@ public class Main {
 		JFrame frame = new JFrame("Parcheesi");
 		InitialMenu menu = new InitialMenu();
 		
+
+		
 		menu.createBackground();
 		menu.choosePlayers();
+		
+		
+		menu.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        JOptionPane.showMessageDialog(null, "Look Ma, I'm in Main...");
+		    }
+		});
 		
 	}
 }

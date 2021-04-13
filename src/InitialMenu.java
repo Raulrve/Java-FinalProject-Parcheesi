@@ -3,7 +3,11 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -88,12 +92,29 @@ public class InitialMenu extends JFrame{
 		startPanel.setBackground(Color.white);
 		background.add(startPanel);
 		
-		JButton startButton = new JButton("START GAME!");
 		startButton.setFont(new Font("Calibri",Font.PLAIN,35));
 		startButton.setSize(300,200);
 		startButton.setLocation(0,0);
 		
 		startPanel.add(startButton);
+		
+		JPanel imagePanel = new JPanel();
+		BufferedImage image;
+		try {
+			image = ImageIO.read(new File("./background2.png"));
+			
+			JLabel imageLable = new JLabel(new ImageIcon(image));
+			imageLable.setSize(200, 200);
+			imageLable.setLocation(0, 0);
+			imagePanel.add(imageLable);
+			imagePanel.setLocation(400, 100);
+			imagePanel.setSize(200,200);
+			background.add(imagePanel);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		
 	}
 	
@@ -114,6 +135,11 @@ public class InitialMenu extends JFrame{
 		
 	}
 	
+    public void addActionListener(ActionListener listener) {
+        startButton.addActionListener(listener);
+    }  
+	
+    private JButton startButton = new JButton("START GAME!");
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
 	private int playerNumber = 2;
