@@ -92,6 +92,13 @@ public class InitialMenu extends JFrame{
 		startButton.setFont(new Font("Calibri",Font.PLAIN,35));
 		startButton.setSize(300,200);
 		startButton.setLocation(0,0);
+		startButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		startPanel.add(startButton);
 		
@@ -114,6 +121,11 @@ public class InitialMenu extends JFrame{
 		
 	}
 	
+	public boolean checkStart() {
+		return start;
+	}
+	
+	private boolean start = false;
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
 	private int playerNumber = 2;

@@ -9,9 +9,13 @@ public class Main {
 		//start of program
 		JFrame frame = new JFrame("Parcheesi");
 		InitialMenu menu = new InitialMenu();
-		
 		menu.createBackground();
 		menu.choosePlayers();
+		
+		
+		
+		
+		
 		
 	}
 }
