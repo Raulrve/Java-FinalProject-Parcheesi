@@ -13,15 +13,14 @@ public class Main {
 		JFrame frame = new JFrame("Parcheesi");
 		InitialMenu menu = new InitialMenu();
 		
-
-		
 		menu.createBackground();
 		menu.choosePlayers();
 		
 		
 		menu.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
-		        JOptionPane.showMessageDialog(null, "Look Ma, I'm in Main...");
+		    	menu.deleteMenu();
+		    	Board game = new Board();
 		    }
 		});
 		

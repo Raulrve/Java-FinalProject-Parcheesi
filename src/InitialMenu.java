@@ -33,6 +33,23 @@ public class InitialMenu extends JFrame{
 		playerQuestion.add(howMany);
 		background.add(playerQuestion);
 		
+		JPanel imagePanel = new JPanel();
+		BufferedImage image;
+		try {
+			image = ImageIO.read(new File("./background2.png"));
+			
+			JLabel imageLable = new JLabel(new ImageIcon(image));
+			imageLable.setSize(200, 200);
+			imageLable.setLocation(0, 0);
+			imagePanel.add(imageLable);
+			imagePanel.setLocation(600, 100);
+			imagePanel.setSize(200,200);
+			imagePanel.setBackground(backgroundColor);
+			background.add(imagePanel);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(null);
@@ -98,23 +115,7 @@ public class InitialMenu extends JFrame{
 		
 		startPanel.add(startButton);
 		
-		JPanel imagePanel = new JPanel();
-		BufferedImage image;
-		try {
-			image = ImageIO.read(new File("./background2.png"));
-			
-			JLabel imageLable = new JLabel(new ImageIcon(image));
-			imageLable.setSize(200, 200);
-			imageLable.setLocation(0, 0);
-			imagePanel.add(imageLable);
-			imagePanel.setLocation(400, 100);
-			imagePanel.setSize(200,200);
-			imagePanel.setBackground(backgroundColor);
-			background.add(imagePanel);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		
 
 		
 	}
@@ -140,6 +141,12 @@ public class InitialMenu extends JFrame{
         startButton.addActionListener(listener);
     }  
 	
+    public void deleteMenu() {
+    	background.setVisible(false);
+    	
+    }
+    
+    
     private JButton startButton = new JButton("START GAME!");
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
