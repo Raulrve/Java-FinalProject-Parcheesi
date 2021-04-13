@@ -109,6 +109,7 @@ public class InitialMenu extends JFrame{
 			imagePanel.add(imageLable);
 			imagePanel.setLocation(400, 100);
 			imagePanel.setSize(200,200);
+			imagePanel.setBackground(backgroundColor);
 			background.add(imagePanel);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
