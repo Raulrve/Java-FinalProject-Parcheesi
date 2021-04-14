@@ -13,8 +13,9 @@ public class Main {
 		JFrame frame = new JFrame("Parcheesi");
 		InitialMenu menu = new InitialMenu();
 		
-		menu.createBackground();
 		menu.choosePlayers();
+		menu.createBackground();
+
 		
 		menu.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
