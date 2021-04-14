@@ -7,18 +7,18 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Board extends JFrame{
 	
 	public Board() {
-		setBackground(Color.green);
-		
+		setBoard();
 	}
 	
 	public void setBoard() {
 		
-		background.setVisible(true);
+		
 		background.setLayout(null);
 		BufferedImage image;
 		try {
@@ -32,8 +32,9 @@ public class Board extends JFrame{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		background.setVisible(true);
 		add(background);
+		
 	}
 	
 	

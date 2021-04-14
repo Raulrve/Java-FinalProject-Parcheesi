@@ -16,7 +16,6 @@ public class Main {
 		menu.createBackground();
 		menu.choosePlayers();
 		
-		
 		menu.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
 		    	menu.deleteMenu();
