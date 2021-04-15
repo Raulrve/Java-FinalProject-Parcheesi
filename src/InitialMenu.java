@@ -142,7 +142,7 @@ public class InitialMenu extends JFrame{
     }  
 	
     public void deleteMenu() {
-    	background.setVisible(false);
+    	setVisible(false);
     	
     }
     

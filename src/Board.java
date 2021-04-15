@@ -18,22 +18,14 @@ public class Board extends JFrame{
 	
 	public void setBoard() {
 		
-		
 		background.setLayout(null);
-		BufferedImage image;
-		try {
-			image = ImageIO.read(new File("./board.png"));
-			JLabel imageLable = new JLabel(new ImageIcon(image));
-			
-			imageLable.setLocation(0, 0);
-			background.add(imageLable);
-			
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		background.setVisible(true);
+		background.setBackground(Color.green);
+		
+		setSize(1400,800);
 		add(background);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		
 	}
 	

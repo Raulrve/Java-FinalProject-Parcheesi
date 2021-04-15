@@ -11,14 +11,18 @@ public class Main {
 	public static void main(String[] args) {
 		//start of program
 		JFrame frame = new JFrame("Parcheesi");
+
 		InitialMenu menu = new InitialMenu();
+		
 		
 		menu.choosePlayers();
 		menu.createBackground();
 
+
 		
 		menu.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent evt) {
+		    	
 		    	menu.deleteMenu();
 		    	Board game = new Board();
 		    }
