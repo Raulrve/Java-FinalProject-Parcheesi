@@ -4,9 +4,11 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -18,10 +20,15 @@ import javax.swing.border.LineBorder;
 public class Board extends JFrame{
 	
 	public Board(int playerNumber) {
+		players = playerNumber;
 		setBoard();
 		setPlayers(playerNumber);
 		userInterface();
+		startGame();
 	}
+	
+	
+	
 	
 	public void setBoard() {
 		
@@ -620,6 +627,28 @@ public class Board extends JFrame{
 	
 	public void startGame() {
 		
+		rollDice.setLocation(150,230);
+		rollDice.setSize(159,50);
+		rollDice.setBackground(Color.cyan);
+		rollDice.setFont(new Font("Calibri",Font.BOLD,30));
+		layeredPane.add(rollDice, layeredPane.POPUP_LAYER);
+		
+		/*if(first) {
+			for (int i = 1; i <= players; i++) {
+				if(i == 1) {
+					playerName.setText("Player 1");
+					
+				}
+				
+				
+				
+				
+			}
+		}
+		
+		*/
+		
+		
 	}
 	
 	
@@ -670,6 +699,8 @@ public class Board extends JFrame{
 	
 	
 	private boolean first = true;
+	private Random rand = new Random();
+	private JButton rollDice = new JButton("Roll Dice!");
 	private JLabel pleaseRoll = new JLabel("Roll the dice!");
 	private JLabel playerName = new JLabel("Player 1");
 	private JPanel movePanel = new JPanel();
@@ -680,5 +711,91 @@ public class Board extends JFrame{
 	private JPanel background = new JPanel();
 	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
+	private int players;
+	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
+			{new Point(620,395), new Point(620,433)},
+			{new Point(648,395), new Point(648,433)},
+
+			{new Point(681,395), new Point(681,433)},
+			{new Point(752,473), new Point(717,473)},
+
+			{new Point(752,505), new Point(717,505)},
+			{new Point(752,534), new Point(717,534)},
+			{new Point(752,562), new Point(717,562)},
+			{new Point(752,591), new Point(717,591)},
+			{new Point(752,620), new Point(717,620)},
+			{new Point(752,650), new Point(717,650)},
+			{new Point(752,679), new Point(717,679)},
+
+			{new Point(829,679), new Point(794,679)},
+
+			{new Point(871,679), new Point(906,679)},
+			{new Point(871,650), new Point(906,650)},
+			{new Point(871,620), new Point(906,620)},
+			{new Point(871,591), new Point(906,591)},
+			{new Point(871,562), new Point(906,562)},
+			{new Point(871,534), new Point(906,534)},
+			{new Point(871,505), new Point(906,505)},
+			
+			{new Point(871,473), new Point(906,473)},
+			{new Point(947,398), new Point(947,436)},
+
+			{new Point(980,398), new Point(980,436)},
+			{new Point(1008,398), new Point(1008,436)},
+			{new Point(1037,398), new Point(1037,436)},
+			{new Point(1066,398), new Point(1066,436)},
+			{new Point(1095,398), new Point(1095,436)},
+			{new Point(1124,398), new Point(1124,436)},
+			{new Point(1155,398), new Point(1155,436)},
+			
+			{new Point(1155,322), new Point(1555,360)},
+			
+			{new Point(1155,282), new Point(1155,244)},
+			{new Point(1124,282), new Point(1124,244)},
+			{new Point(1095,282), new Point(1095,244)},
+			{new Point(1066,282), new Point(1066,244)},
+			{new Point(1037,282), new Point(1037,244)},
+			{new Point(1008,282), new Point(1008,244)},
+			{new Point(980,282), new Point(980,244)},
+			
+			{new Point(947,282), new Point(947,244)},
+			{new Point(873,206), new Point(908,206)},
+
+			{new Point(873,174), new Point(908,174)},
+			{new Point(873,145), new Point(908,145)},
+			{new Point(873,117), new Point(908,177)},
+			{new Point(873,88), new Point(908,88)},
+			{new Point(873,59), new Point(908,59)},
+			{new Point(873,30), new Point(908,30)},
+			{new Point(873,0), new Point(908,0)},
+			
+			{new Point(796,0), new Point(831,0)},
+			
+			{new Point(754,0), new Point(719,0)},
+			{new Point(754,30), new Point(719,30)},
+			{new Point(754,59), new Point(719,59)},
+			{new Point(754,88), new Point(719,88)},
+			{new Point(754,117), new Point(719,117)},
+			{new Point(754,145), new Point(719,145)},
+			{new Point(754,174), new Point(719,174)},
+			
+			{new Point(754,206), new Point(719,206)},
+			{new Point(681,279), new Point(681,241)},
+			
+			{new Point(648,279), new Point(648,241)},
+			{new Point(620,279), new Point(620,241)},
+			{new Point(591,279), new Point(591,241)},
+			{new Point(562,279), new Point(562,241)},
+			{new Point(533,279), new Point(533,241)},
+			{new Point(504,279), new Point(504,241)},
+			{new Point(473,279), new Point(473,241)},
+			
+			{new Point(473,355), new Point(473,317)},
+			
+			{new Point(473,395), new Point(473,433)},
+			{new Point(503,395), new Point(503,433)},
+			{new Point(533,395), new Point(533,433)},
+			{new Point(562,395), new Point(562,433)},
+};
 	
 }
