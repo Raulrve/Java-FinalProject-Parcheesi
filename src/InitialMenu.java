@@ -36,7 +36,7 @@ public class InitialMenu extends JFrame{
 		JPanel imagePanel = new JPanel();
 		BufferedImage image;
 		try {
-			image = ImageIO.read(new File("./background2.png"));
+			image = ImageIO.read(new File("./Images/background2.png"));
 			
 			JLabel imageLable = new JLabel(new ImageIcon(image));
 			imageLable.setSize(200, 200);

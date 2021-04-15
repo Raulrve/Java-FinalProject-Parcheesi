@@ -26,7 +26,7 @@ public class Board extends JFrame{
 
 		BufferedImage image;
 		try {
-			image = ImageIO.read(new File("./board2.png"));
+			image = ImageIO.read(new File("./Images/board2.png"));
 			
 			JLabel imageLable = new JLabel(new ImageIcon(image));
 			imageLable.setLocation(0, 0);
