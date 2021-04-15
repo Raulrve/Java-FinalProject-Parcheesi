@@ -20,15 +20,15 @@ public class Board extends JFrame{
 		
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
-		setSize(1500,940);
+		setSize(1200,760);
 		JPanel imagePanel = new JPanel();
 		BufferedImage image;
 		try {
 			image = ImageIO.read(new File("./board2.png"));
 			
 			JLabel imageLable = new JLabel(new ImageIcon(image));
-			imageLable.setLocation(588, 0);
-			imageLable.setSize(897,900);
+			imageLable.setLocation(377, 0);
+			imageLable.setSize(897,720);
 			background.add(imageLable);
 
 		} catch (IOException e1) {
