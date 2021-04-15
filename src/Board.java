@@ -648,7 +648,7 @@ public class Board extends JFrame{
 			}
 		});
 		
-		while(currentPlayer != players) {
+		/*while(currentPlayer != players) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e1) {
@@ -656,6 +656,7 @@ public class Board extends JFrame{
 				e1.printStackTrace();
 			}
 		}
+		*/
 		
 		/*if(first) {
 			for (int i = 1; i <= players; i++) {
