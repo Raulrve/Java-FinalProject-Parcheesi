@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,7 +23,9 @@ public class Board extends JFrame{
 		setResizable(false);
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
+		background.setSize(1200,751);
 		setSize(1200,751);
+		layeredPane.add(background, layeredPane.DEFAULT_LAYER);
 
 		BufferedImage image;
 		try {
@@ -34,13 +37,14 @@ public class Board extends JFrame{
 			boardPanel.setLocation(466,-9);
 			boardPanel.setSize(718,720);
 			boardPanel.add(imageLable);
-			background.add(boardPanel);
+			layeredPane.add(boardPanel, layeredPane.PALETTE_LAYER);
 
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}		
-		add(background);
+		
+		add(layeredPane);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		
@@ -56,5 +60,6 @@ public class Board extends JFrame{
 	private JPanel boardPanel = new JPanel();
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
+	JLayeredPane layeredPane = new JLayeredPane();
 	
 }
