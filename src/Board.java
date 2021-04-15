@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class Board extends JFrame{
 				yellow1.add(yellow1label);
 				yellow1.setSize(25,30);
 				yellow1.setOpaque(false);
-				yellow1.setLocation(603,553);
+				yellow1.setLocation(yellowb[0]);
 				layeredPane.add(yellow1, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -80,7 +81,7 @@ public class Board extends JFrame{
 				yellow2.add(yellow2label);
 				yellow2.setSize(25,30);
 				yellow2.setOpaque(false);
-				yellow2.setLocation(553,553);
+				yellow2.setLocation(yellowb[1]);
 				layeredPane.add(yellow2, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -96,7 +97,7 @@ public class Board extends JFrame{
 				yellow3.add(yellow3label);
 				yellow3.setSize(25,30);
 				yellow3.setOpaque(false);
-				yellow3.setLocation(553,603);
+				yellow3.setLocation(yellowb[2]);
 				layeredPane.add(yellow3, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -112,7 +113,7 @@ public class Board extends JFrame{
 				yellow4.add(yellow4label);
 				yellow4.setSize(25,30);
 				yellow4.setOpaque(false);
-				yellow4.setLocation(603,603);
+				yellow4.setLocation(yellowb[3]);
 				layeredPane.add(yellow4, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -131,7 +132,7 @@ public class Board extends JFrame{
 				red1.add(red1label);
 				red1.setSize(25,30);
 				red1.setOpaque(false);
-				red1.setLocation(1028,130);
+				red1.setLocation(redb[0]);
 				layeredPane.add(red1, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -147,7 +148,7 @@ public class Board extends JFrame{
 				red2.add(red2label);
 				red2.setSize(25,30);
 				red2.setOpaque(false);
-				red2.setLocation(1078,130);
+				red2.setLocation(redb[1]);
 				layeredPane.add(red2, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -163,7 +164,7 @@ public class Board extends JFrame{
 				red3.add(red3label);
 				red3.setSize(25,30);
 				red3.setOpaque(false);
-				red3.setLocation(1028,80);
+				red3.setLocation(redb[2]);
 				layeredPane.add(red3, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -179,7 +180,7 @@ public class Board extends JFrame{
 				red4.add(red4label);
 				red4.setSize(25,30);
 				red4.setOpaque(false);
-				red4.setLocation(1078,80);
+				red4.setLocation(redb[3]);
 				layeredPane.add(red4, layeredPane.MODAL_LAYER);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -200,7 +201,7 @@ public class Board extends JFrame{
                 green1.add(green1label);
                 green1.setSize(25,30);
                 green1.setOpaque(false);
-                green1.setLocation(1028,553);
+                green1.setLocation(greenb[0]);
                 layeredPane.add(green1, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -216,7 +217,7 @@ public class Board extends JFrame{
                 green2.add(green2label);
                 green2.setSize(25,30);
                 green2.setOpaque(false);
-                green2.setLocation(1028,603);
+                green2.setLocation(greenb[1]);
                 layeredPane.add(green2, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -232,7 +233,7 @@ public class Board extends JFrame{
                 green3.add(green3label);
                 green3.setSize(25,30);
                 green3.setOpaque(false);
-                green3.setLocation(1078,553);
+                green3.setLocation(greenb[2]);
                 layeredPane.add(green3, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -247,7 +248,7 @@ public class Board extends JFrame{
                 green4.add(green4label);
                 green4.setSize(25,30);
                 green4.setOpaque(false);
-                green4.setLocation(1078,603);
+                green4.setLocation(greenb[3]);
                 layeredPane.add(green4, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -266,7 +267,7 @@ public class Board extends JFrame{
                 blue1.add(Blue1Label);
                 blue1.setSize(25,30);
                 blue1.setOpaque(false);
-                blue1.setLocation(603,130);
+                blue1.setLocation(blueb[0]);
                 layeredPane.add(blue1, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -281,7 +282,7 @@ public class Board extends JFrame{
                 blue2.add(Blue2Label);
                 blue2.setSize(25,30);
                 blue2.setOpaque(false);
-                blue2.setLocation(603,80);
+                blue2.setLocation(blueb[1]);
                 layeredPane.add(blue2, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -296,7 +297,7 @@ public class Board extends JFrame{
                 blue3.add(Blue3Label);
                 blue3.setSize(25,30);
                 blue3.setOpaque(false);
-                blue3.setLocation(553,80);
+                blue3.setLocation(blueb[2]);
                 layeredPane.add(blue3, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -311,7 +312,7 @@ public class Board extends JFrame{
                 blue4.add(Blue4Label);
                 blue4.setSize(25,30);
                 blue4.setOpaque(false);
-                blue4.setLocation(553,130);
+                blue4.setLocation(blueb[3]);
                 layeredPane.add(blue4, layeredPane.MODAL_LAYER);
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -348,6 +349,17 @@ public class Board extends JFrame{
 	private JPanel blue4 = new JPanel();
 	
 	
+	private Point[] yellowb = {new Point(603,553), new Point(553,553),
+								new Point(553,603), new Point(603,603)};
+	
+	private Point[] redb = {new Point(1028,130), new Point(1078,130),
+							new Point(1028,80), new Point(1078,80)};
+	
+	private Point[] greenb = {new Point(1028,553), new Point(1028,603),
+								new Point(1078,553), new Point(1078,603)};
+	
+	private Point[] blueb = {new Point(603,130), new Point(603,80),
+								new Point(553,80), new Point(553,130)};
 	
 	
 	
