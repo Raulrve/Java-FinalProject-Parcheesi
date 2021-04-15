@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -633,6 +635,28 @@ public class Board extends JFrame{
 		rollDice.setFont(new Font("Calibri",Font.BOLD,30));
 		layeredPane.add(rollDice, layeredPane.POPUP_LAYER);
 		
+		rollDice.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int dice1 = rand.nextInt(6) + 1;
+				int dice2 = rand.nextInt(6) + 1;
+				
+				currentPlayer++;
+				
+				
+			}
+		});
+		
+		while(currentPlayer != players) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
 		/*if(first) {
 			for (int i = 1; i <= players; i++) {
 				if(i == 1) {
@@ -648,8 +672,12 @@ public class Board extends JFrame{
 		
 		*/
 		
+
+		
 		
 	}
+	
+	public void diceShow(int x , int y) {}
 	
 	
 	private JPanel yellow1 = new JPanel();
@@ -712,6 +740,9 @@ public class Board extends JFrame{
 	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
 	private int players;
+	private int currentPlayer = 0;
+	
+	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
 			{new Point(620,395), new Point(620,433)},
 			{new Point(648,395), new Point(648,433)},
