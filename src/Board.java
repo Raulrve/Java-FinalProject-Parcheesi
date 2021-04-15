@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,12 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class Board extends JFrame{
 	
 	public Board(int playerNumber) {
 		setBoard();
 		setPlayers(playerNumber);
+		userInterface();
 	}
 	
 	public void setBoard() {
@@ -54,7 +58,7 @@ public class Board extends JFrame{
 	public void setPlayers(int playerNumber) {
 		BufferedImage image;
 		if(playerNumber >= 2) {
-			//amarillo 1
+			//amarillo 
 			
 			try {
 				image = ImageIO.read(new File("./Images/Yellow1.png"));
@@ -318,17 +322,305 @@ public class Board extends JFrame{
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
-			
-			
-			
-			
-			
 		}
+	}
+	public void userInterface() {
+		//show current player
+		currentPlayerPanel.setLayout(null);
+		currentPlayerPanel.setLocation(0,0);
+		currentPlayerPanel.setSize(468,100);
+		currentPlayerPanel.setBackground(Color.LIGHT_GRAY);
+		currentPlayerPanel.setBorder(border);
+		
+		playerName.setSize(300,100);
+		playerName.setLocation(150,10);
+		playerName.setFont(new Font("Calibri",Font.BOLD,50));
+		
+		
+		currentPlayerPanel.add(playerName);
+		layeredPane.add(currentPlayerPanel, layeredPane.PALETTE_LAYER);
+		
+		
+		//show dice
+		dicePanel.setLayout(null);
+		dicePanel.setLocation(0,100);
+		dicePanel.setSize(468,250);
+		dicePanel.setBackground(Color.LIGHT_GRAY);
+		dicePanel.setBorder(border);
+		setDice();
+		
+		
+		
+		pleaseRoll.setSize(200,50);
+		pleaseRoll.setLocation(150,10);
+		pleaseRoll.setFont(new Font("Calibri",Font.BOLD,30));
+		dicePanel.add(pleaseRoll);
+		layeredPane.add(dicePanel, layeredPane.PALETTE_LAYER);
+		
+		
+		
+			
+		
+		
+		movePanel.setLayout(null);
+		movePanel.setLocation(0,350);
+		movePanel.setSize(468,362);
+		movePanel.setBackground(Color.LIGHT_GRAY);
+		movePanel.setBorder(border);
+		
+		layeredPane.add(movePanel, layeredPane.PALETTE_LAYER);
+	}
+	
+	public void setDice() {
+		BufferedImage image;
+		//dado 6 izquierda
+		try {
+			image = ImageIO.read(new File("./Images/Dado6.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda6.add(dadolabel);
+			dadoizquierda6.setSize(100,110);
+			dadoizquierda6.setOpaque(false);
+			dadoizquierda6.setLocation(110,200);
+			dadoizquierda6.setVisible(true);
+			layeredPane.add(dadoizquierda6, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//dado 5 izquierda
+		try {
+			image = ImageIO.read(new File("./Images/Dado5.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda5.add(dadolabel);
+			dadoizquierda5.setSize(100,110);
+			dadoizquierda5.setOpaque(false);
+			dadoizquierda5.setLocation(110,200);
+			dadoizquierda5.setVisible(false);
+			layeredPane.add(dadoizquierda5, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//dado 4 izquierda
+		
+		try {
+			image = ImageIO.read(new File("./Images/Dado4.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda4.add(dadolabel);
+			dadoizquierda4.setSize(100,110);
+			dadoizquierda4.setOpaque(false);
+			dadoizquierda4.setLocation(110,200);
+			dadoizquierda4.setVisible(false);
+			layeredPane.add(dadoizquierda4, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//dado 3 izquierda
+		
+		try {
+			image = ImageIO.read(new File("./Images/Dado3.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda3.add(dadolabel);
+			dadoizquierda3.setSize(100,110);
+			dadoizquierda3.setOpaque(false);
+			dadoizquierda3.setLocation(110,200);
+			dadoizquierda3.setVisible(false);
+			layeredPane.add(dadoizquierda3, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//dado 2 izquierda
+		
+		try {
+			image = ImageIO.read(new File("./Images/Dado2.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda2.add(dadolabel);
+			dadoizquierda2.setSize(100,110);
+			dadoizquierda2.setOpaque(false);
+			dadoizquierda2.setLocation(110,200);
+			dadoizquierda2.setVisible(false);
+			layeredPane.add(dadoizquierda2, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//dado 1 izquierda
+		try {
+			image = ImageIO.read(new File("./Images/Dado1.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoizquierda1.add(dadolabel);
+			dadoizquierda1.setSize(100,110);
+			dadoizquierda1.setOpaque(false);
+			dadoizquierda1.setLocation(110,200);
+			dadoizquierda1.setVisible(false);
+			layeredPane.add(dadoizquierda1, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		// dado 6 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado6.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha6.add(dadolabel);
+			dadoderecha6.setSize(100,110);
+			dadoderecha6.setOpaque(false);
+			dadoderecha6.setLocation(250,200);
+			layeredPane.add(dadoderecha6, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		// dado 5 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado5.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha5.add(dadolabel);
+			dadoderecha5.setSize(100,110);
+			dadoderecha5.setOpaque(false);
+			dadoderecha5.setLocation(250,200);
+			layeredPane.add(dadoderecha5, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		// dado 4 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado4.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha4.add(dadolabel);
+			dadoderecha4.setSize(100,110);
+			dadoderecha4.setOpaque(false);
+			dadoderecha4.setLocation(250,200);
+			layeredPane.add(dadoderecha4, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		// dado 3 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado3.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha3.add(dadolabel);
+			dadoderecha3.setSize(100,110);
+			dadoderecha3.setOpaque(false);
+			dadoderecha3.setLocation(250,200);
+			layeredPane.add(dadoderecha3, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}	
+		
+		// dado 2 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado2.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha2.add(dadolabel);
+			dadoderecha2.setSize(100,110);
+			dadoderecha2.setOpaque(false);
+			dadoderecha2.setLocation(250,200);
+			layeredPane.add(dadoderecha2, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		// dado 1 derecha
+		try {
+			image = ImageIO.read(new File("./Images/Dado1.png"));
+			
+			JLabel dadolabel = new JLabel(new ImageIcon(image));
+			dadolabel.setLocation(0, 0);
+			dadolabel.setBackground(null);
+			dadoderecha1.add(dadolabel);
+			dadoderecha1.setSize(100,110);
+			dadoderecha1.setOpaque(false);
+			dadoderecha1.setLocation(250,200);
+			layeredPane.add(dadoderecha1, layeredPane.MODAL_LAYER);
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
+		
 		
 		
 	}
 	
 	
+	
+	
+	public void startGame() {
+		
+	}
 	
 	
 	private JPanel yellow1 = new JPanel();
@@ -348,6 +640,20 @@ public class Board extends JFrame{
 	private JPanel blue3 = new JPanel();
 	private JPanel blue4 = new JPanel();
 	
+	private JPanel dadoizquierda1 = new JPanel();
+	private JPanel dadoizquierda2 = new JPanel();
+	private JPanel dadoizquierda3 = new JPanel();
+	private JPanel dadoizquierda4 = new JPanel();
+	private JPanel dadoizquierda5 = new JPanel();
+	private JPanel dadoizquierda6 = new JPanel();
+	
+	private JPanel dadoderecha1 = new JPanel();
+	private JPanel dadoderecha2 = new JPanel();
+	private JPanel dadoderecha3 = new JPanel();
+	private JPanel dadoderecha4 = new JPanel();
+	private JPanel dadoderecha5 = new JPanel();
+	private JPanel dadoderecha6 = new JPanel();
+	
 	
 	private Point[] yellowb = {new Point(603,553), new Point(553,553),
 								new Point(553,603), new Point(603,603)};
@@ -363,9 +669,16 @@ public class Board extends JFrame{
 	
 	
 	
+	private boolean first = true;
+	private JLabel pleaseRoll = new JLabel("Roll the dice!");
+	private JLabel playerName = new JLabel("Player 1");
+	private JPanel movePanel = new JPanel();
+	private JPanel dicePanel = new JPanel();
+	private JPanel currentPlayerPanel = new JPanel();
 	private JPanel boardPanel = new JPanel();
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
+	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
 	
 }
