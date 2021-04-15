@@ -24,7 +24,8 @@ public class Main {
 		    public void actionPerformed(ActionEvent evt) {
 		    	
 		    	menu.deleteMenu();
-		    	Board game = new Board();
+		    	int playerNumber = menu.players();
+		    	Board game = new Board(playerNumber);
 		    }
 		});
 		

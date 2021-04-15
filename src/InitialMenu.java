@@ -124,6 +124,7 @@ public class InitialMenu extends JFrame{
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
 		
+		setTitle("Menu");
 		setSize(1400,800);
 		add(background);
 		setVisible(true);
@@ -143,6 +144,10 @@ public class InitialMenu extends JFrame{
 	
     public void deleteMenu() {
     	setVisible(false);
+    	
+    }
+    public int players() {
+    	return playerNumber;
     	
     }
     

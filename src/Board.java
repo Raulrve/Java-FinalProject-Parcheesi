@@ -12,38 +12,40 @@ import javax.swing.JPanel;
 
 public class Board extends JFrame{
 	
-	public Board() {
+	public Board(int playerNumber) {
 		setBoard();
 	}
 	
 	public void setBoard() {
 		
+		setTitle("Parcheesi");
+		setResizable(false);
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
-		setSize(1200,760);
-		JPanel imagePanel = new JPanel();
+		setSize(1200,751);
+
 		BufferedImage image;
 		try {
 			image = ImageIO.read(new File("./board2.png"));
 			
 			JLabel imageLable = new JLabel(new ImageIcon(image));
-			imageLable.setLocation(377, 0);
-			imageLable.setSize(897,720);
-			background.add(imageLable);
+			imageLable.setLocation(0, 0);
+
+			boardPanel.setLocation(466,-9);
+			boardPanel.setSize(718,720);
+			boardPanel.add(imageLable);
+			background.add(boardPanel);
 
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
-		
-		
-		
-		
+		}		
 		add(background);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		
-		
+	}
+	public void setPlayers(int playerNumber) {
 		
 	}
 	
@@ -51,7 +53,7 @@ public class Board extends JFrame{
 	
 	
 	
-	
+	private JPanel boardPanel = new JPanel();
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
 	
