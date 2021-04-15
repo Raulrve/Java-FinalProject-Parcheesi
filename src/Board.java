@@ -15,6 +15,7 @@ public class Board extends JFrame{
 	
 	public Board(int playerNumber) {
 		setBoard();
+		setPlayers(playerNumber);
 	}
 	
 	public void setBoard() {
@@ -50,8 +51,60 @@ public class Board extends JFrame{
 		
 	}
 	public void setPlayers(int playerNumber) {
+		if(playerNumber >= 2) {
+			//amarillo
+			BufferedImage image;
+			try {
+				image = ImageIO.read(new File("./Images/Yellow1.png"));
+				
+				JLabel yellow1label = new JLabel(new ImageIcon(image));
+				yellow1label.setLocation(0, 0);
+				yellow1label.setBackground(null);
+				yellow1.add(yellow1label);
+				yellow1.setSize(25,30);
+				yellow1.setOpaque(false);
+				yellow1.setLocation(500,600);
+				layeredPane.add(yellow1, layeredPane.MODAL_LAYER);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+			//rojo
+			
+		}
+		if(playerNumber >= 3) {
+			//verde
+			
+		}
+		if(playerNumber >= 4) {
+			//azul
+			
+		}
+		
 		
 	}
+	
+	
+	
+	
+	private JPanel yellow1 = new JPanel();
+	private JPanel yellow2 = new JPanel();
+	private JPanel yellow3 = new JPanel();
+	private JPanel yellow4 = new JPanel();
+	private JPanel red1 = new JPanel();
+	private JPanel red2 = new JPanel();
+	private JPanel red3 = new JPanel();
+	private JPanel red4 = new JPanel();
+	private JPanel green1 = new JPanel();
+	private JPanel green2 = new JPanel();
+	private JPanel green3 = new JPanel();
+	private JPanel green4 = new JPanel();
+	private JPanel blue1 = new JPanel();
+	private JPanel blue2 = new JPanel();
+	private JPanel blue3 = new JPanel();
+	private JPanel blue4 = new JPanel();
 	
 	
 	
