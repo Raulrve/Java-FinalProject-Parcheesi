@@ -19,13 +19,31 @@ public class Board extends JFrame{
 	public void setBoard() {
 		
 		background.setLayout(null);
-		background.setBackground(Color.green);
+		background.setBackground(backgroundColor);
+		setSize(1500,940);
+		JPanel imagePanel = new JPanel();
+		BufferedImage image;
+		try {
+			image = ImageIO.read(new File("./board2.png"));
+			
+			JLabel imageLable = new JLabel(new ImageIcon(image));
+			imageLable.setLocation(588, 0);
+			imageLable.setSize(897,900);
+			background.add(imageLable);
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-		setSize(1400,800);
+		
+		
+		
 		add(background);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
+		
 		
 	}
 	
@@ -34,7 +52,7 @@ public class Board extends JFrame{
 	
 	
 	
-	
+	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
 	
 }
