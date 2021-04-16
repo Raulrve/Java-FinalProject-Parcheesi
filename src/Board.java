@@ -516,6 +516,7 @@ public class Board extends JFrame{
 			dadoderecha6.setSize(100,110);
 			dadoderecha6.setOpaque(false);
 			dadoderecha6.setLocation(250,200);
+			dadoderecha6.setVisible(true);
 			layeredPane.add(dadoderecha6, layeredPane.MODAL_LAYER);
 			
 			
@@ -535,6 +536,7 @@ public class Board extends JFrame{
 			dadoderecha5.setSize(100,110);
 			dadoderecha5.setOpaque(false);
 			dadoderecha5.setLocation(250,200);
+			dadoderecha5.setVisible(false);
 			layeredPane.add(dadoderecha5, layeredPane.MODAL_LAYER);
 			
 			
@@ -554,6 +556,7 @@ public class Board extends JFrame{
 			dadoderecha4.setSize(100,110);
 			dadoderecha4.setOpaque(false);
 			dadoderecha4.setLocation(250,200);
+			dadoderecha4.setVisible(false);
 			layeredPane.add(dadoderecha4, layeredPane.MODAL_LAYER);
 			
 			
@@ -573,6 +576,7 @@ public class Board extends JFrame{
 			dadoderecha3.setSize(100,110);
 			dadoderecha3.setOpaque(false);
 			dadoderecha3.setLocation(250,200);
+			dadoderecha3.setVisible(false);
 			layeredPane.add(dadoderecha3, layeredPane.MODAL_LAYER);
 			
 			
@@ -592,6 +596,7 @@ public class Board extends JFrame{
 			dadoderecha2.setSize(100,110);
 			dadoderecha2.setOpaque(false);
 			dadoderecha2.setLocation(250,200);
+			dadoderecha2.setVisible(false);
 			layeredPane.add(dadoderecha2, layeredPane.MODAL_LAYER);
 			
 			
@@ -611,6 +616,7 @@ public class Board extends JFrame{
 			dadoderecha1.setSize(100,110);
 			dadoderecha1.setOpaque(false);
 			dadoderecha1.setLocation(250,200);
+			dadoderecha1.setVisible(false);
 			layeredPane.add(dadoderecha1, layeredPane.MODAL_LAYER);
 			
 			
@@ -629,24 +635,102 @@ public class Board extends JFrame{
 	
 	public void startGame() {
 		
+		endTurn.setLocation(150,650);
+		endTurn.setSize(150,50);
+		endTurn.setBackground(Color.pink);
+		endTurn.setFont(new Font("Calibri",Font.BOLD,20));
+		endTurn.setVisible(false);
+		layeredPane.add(endTurn, layeredPane.POPUP_LAYER);
+		endTurn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				stopDice();
+				dadoizquierda6.setVisible(true);
+				dadoderecha6.setVisible(true);
+				
+				currentPlayer++;
+				nextPlayer();
+			}
+		});
+		
+		
+		
+		
 		rollDice.setLocation(150,230);
 		rollDice.setSize(159,50);
 		rollDice.setBackground(Color.cyan);
 		rollDice.setFont(new Font("Calibri",Font.BOLD,30));
 		layeredPane.add(rollDice, layeredPane.POPUP_LAYER);
-		
 		rollDice.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int dice1 = rand.nextInt(6) + 1;
 				int dice2 = rand.nextInt(6) + 1;
+				rollDice.setVisible(false);
+				stopDice();
 				
-				currentPlayer++;
+				//set left dice
+				if(dice1 == 1) {
+					dadoizquierda1.setVisible(true);
+				}
+				else if(dice1 == 2) {
+					dadoizquierda2.setVisible(true);
+				}
+				
+				else if(dice1 == 3) {
+					dadoizquierda3.setVisible(true);
+				}
+				
+				else if(dice1 == 4) {
+					dadoizquierda4.setVisible(true);
+				}
+				
+				else if(dice1 == 5) {
+					dadoizquierda5.setVisible(true);
+				}
+				
+				else if(dice1 == 6) {
+					dadoizquierda6.setVisible(true);
+				}
+				
+				//set right dice
+				if(dice2 == 1) {
+					dadoderecha1.setVisible(true);
+				}
+				else if(dice2 == 2) {
+					dadoderecha2.setVisible(true);
+				}
+				
+				else if(dice2 == 3) {
+					dadoderecha3.setVisible(true);
+				}
+				
+				else if(dice2 == 4) {
+					dadoderecha4.setVisible(true);
+				}
+				
+				else if(dice2 == 5) {
+					dadoderecha5.setVisible(true);
+				}
+				
+				else if(dice2 == 6) {
+					dadoderecha6.setVisible(true);
+				}
 				
 				
+				
+				if(first) {
+					endTurn.setVisible(true);
+				}	
 			}
+			
+			
 		});
+		
+		
 		
 		/*while(currentPlayer != players) {
 			try {
@@ -663,18 +747,47 @@ public class Board extends JFrame{
 				if(i == 1) {
 					playerName.setText("Player 1");
 					
-				}
-				
-				
-				
-				
+				}	
 			}
 		}
 		
 		*/
+	}
+	public void nextPlayer() {
+		endTurn.setVisible(false);
+		rollDice.setVisible(true);
+		if(currentPlayer == players +1) {
+			currentPlayer = 1;
+		}
 		
-
+		if(currentPlayer == 1) {
+			playerName.setText("Player 1");
+		}
+		else if(currentPlayer == 2) {
+			playerName.setText("Player 2");
+		}
+		else if(currentPlayer == 3) {
+			playerName.setText("Player 3");
+		}
+		else if(currentPlayer == 4) {
+			playerName.setText("Player 4");
+		}
+	}
+	
+	public void stopDice() {
+		dadoizquierda1.setVisible(false);
+		dadoizquierda2.setVisible(false);
+		dadoizquierda3.setVisible(false);
+		dadoizquierda4.setVisible(false);
+		dadoizquierda5.setVisible(false);
+		dadoizquierda6.setVisible(false);
 		
+		dadoderecha1.setVisible(false);
+		dadoderecha2.setVisible(false);
+		dadoderecha3.setVisible(false);
+		dadoderecha4.setVisible(false);
+		dadoderecha5.setVisible(false);
+		dadoderecha6.setVisible(false);
 		
 	}
 	
@@ -729,6 +842,7 @@ public class Board extends JFrame{
 	
 	private boolean first = true;
 	private Random rand = new Random();
+	private JButton endTurn = new JButton("End Turn");
 	private JButton rollDice = new JButton("Roll Dice!");
 	private JLabel pleaseRoll = new JLabel("Roll the dice!");
 	private JLabel playerName = new JLabel("Player 1");
@@ -741,7 +855,7 @@ public class Board extends JFrame{
 	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
 	private int players;
-	private int currentPlayer = 0;
+	private int currentPlayer = 1;
 	
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
