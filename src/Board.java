@@ -655,8 +655,16 @@ public class Board extends JFrame{
 				
 				showDice1.setVisible(false);
 				showDice2.setVisible(false);
-				currentPlayer++;
-				nextPlayer();
+				
+				if(doubleDice) {
+					nextPlayer();
+					doubleDice = false;
+				}
+				else {
+					currentPlayer++;
+					nextPlayer();
+				}
+				
 			}
 		});
 		
@@ -710,6 +718,9 @@ public class Board extends JFrame{
 				stopDice();
 				int diceSum = dice1 + dice2;
 				
+				if(dice1 == dice2) {
+					doubleDice = true;
+				}
 				
 				//set left dice
 				if(dice1 == 1) {
@@ -1196,6 +1207,11 @@ public class Board extends JFrame{
 	}
 	
 	public void moveYellow5() {
+		
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
+		}
+		
 		if(colorPos[0][1] != "yellow") {
 			if(dice1 + dice2 == 5) {
 				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
@@ -1273,13 +1289,16 @@ public class Board extends JFrame{
 				}
 			}
 		}
-		if(dice1 == 5 && dice2 == dice1) {
-			endTurn.setVisible(true);
-		}
+		
 
 	}
 	
 	public void moveRed5() {
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
+		}
+		
+		
 		if(colorPos[34][1] != "red") {
 			if(dice1 + dice2 == 5) {
 				if(Arrays.asList(redb).contains(red1.getLocation())) {
@@ -1360,9 +1379,7 @@ public class Board extends JFrame{
 			}
 		}
 		
-		if(dice1 == 5 && dice2 == dice1) {
-			endTurn.setVisible(true);
-		}
+		
 
 	}
 	
@@ -1497,6 +1514,7 @@ public class Board extends JFrame{
 						break;
 					}
 				}
+				
 					
 			}
 			int dest1 = x+dice1;
@@ -1699,6 +1717,7 @@ public class Board extends JFrame{
 	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
 	private JPanel buttonPanel = new JPanel();
+	private boolean doubleDice = false;
 	private int players;
 	private int currentPlayer = 1;
 	private int firstPlayer;
