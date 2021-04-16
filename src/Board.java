@@ -826,6 +826,11 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				button2.setBackground(Color.CYAN);
+				button3.setBackground(Color.CYAN);
+				button4.setBackground(Color.CYAN);
+				button1.setBackground(Color.yellow);
+				
 				dbtn = 1;
 				if(currentPlayer == 1) {
 					check(yellow1, "yellow");
@@ -856,6 +861,12 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				button1.setBackground(Color.CYAN);
+				button3.setBackground(Color.CYAN);
+				button4.setBackground(Color.CYAN);
+				button2.setBackground(Color.yellow);
+				
+				
 				dbtn = 2;
 				if(currentPlayer == 1) {
 					check(yellow2, "yellow");
@@ -886,6 +897,12 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				button1.setBackground(Color.CYAN);
+				button2.setBackground(Color.CYAN);
+				button4.setBackground(Color.CYAN);
+				button3.setBackground(Color.yellow);
+				
+				
 				dbtn = 3;
 				if(currentPlayer == 1) {
 					check(yellow3, "yellow");
@@ -916,6 +933,13 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				button1.setBackground(Color.CYAN);
+				button3.setBackground(Color.CYAN);
+				button2.setBackground(Color.CYAN);
+				button4.setBackground(Color.yellow);
+				
+				
+				
 				dbtn = 4;
 				if(currentPlayer == 1) {
 					check(yellow4, "yellow");
@@ -1121,6 +1145,12 @@ public class Board extends JFrame{
 	}
 	
 	public void nextPlayer() {
+		button2.setBackground(Color.CYAN);
+		button3.setBackground(Color.CYAN);
+		button4.setBackground(Color.CYAN);
+		button1.setBackground(Color.CYAN);
+		
+		
 		endTurn.setVisible(false);
 		rollDice.setVisible(true);
 		if(currentPlayer == players +1) {
