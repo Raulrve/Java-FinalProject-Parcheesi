@@ -634,6 +634,7 @@ public class Board extends JFrame{
 	
 	
 	public void startGame() {
+		playerName.setForeground(Color.yellow);
 		
 		endTurn.setLocation(150,650);
 		endTurn.setSize(150,50);
@@ -760,18 +761,54 @@ public class Board extends JFrame{
 			currentPlayer = 1;
 		}
 		
-		if(currentPlayer == 1) {
-			playerName.setText("Player 1");
+		if(players ==  2) {
+			if(currentPlayer == 1) {
+				playerName.setText("Player 1");
+				playerName.setForeground(Color.yellow);
+			}
+			else if(currentPlayer == 2) {
+				playerName.setText("Player 2");
+				playerName.setForeground(Color.red);
+			}
+			
 		}
-		else if(currentPlayer == 2) {
-			playerName.setText("Player 2");
+		
+		else if(players == 3) {
+			if(currentPlayer == 1) {
+				playerName.setText("Player 1");
+				playerName.setForeground(Color.yellow);
+			}
+			else if(currentPlayer == 2) {
+				playerName.setText("Player 2");
+				playerName.setForeground(Color.blue);
+			}
+			else if(currentPlayer == 3) {
+				playerName.setText("Player 3");
+				playerName.setForeground(Color.red);
+			}
 		}
-		else if(currentPlayer == 3) {
-			playerName.setText("Player 3");
+		
+		else if(players == 4) {
+			if(currentPlayer == 1) {
+				playerName.setText("Player 1");
+				playerName.setForeground(Color.yellow);
+			}
+			else if(currentPlayer == 2) {
+				playerName.setText("Player 2");
+				playerName.setForeground(Color.blue);
+			}
+			else if(currentPlayer == 3) {
+				playerName.setText("Player 3");
+				playerName.setForeground(Color.red);
+			}
+			else if(currentPlayer == 4) {
+				playerName.setText("Player 4");
+				playerName.setForeground(Color.green);
+			}
+			
+			
 		}
-		else if(currentPlayer == 4) {
-			playerName.setText("Player 4");
-		}
+		
 	}
 	
 	public void stopDice() {
