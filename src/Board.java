@@ -1557,10 +1557,12 @@ public class Board extends JFrame{
 			}
 			
 			for(int w = 0; w<=11; w++) {
-				if(safespots[w] == dest1) {
+				if(safespots[w] == dest1 && colorPos[w][0] != color && colorPos[w][0] != "") {
+				
 					showDice1.setVisible(false);
 				}
-				if(safespots[w] == dest2) {
+				if(safespots[w] == dest2 && colorPos[w][0] != color && colorPos[w][0] != "") {
+					
 					showDice2.setVisible(false);
 				}
 			}
@@ -1763,6 +1765,46 @@ public class Board extends JFrame{
 	private JButton button4 = new JButton("4");
 	private int lastDice = 0;
 	private int[] safespots = {0, 7, 12, 17, 24, 29, 34, 41, 46, 51, 58, 63};
+	
+	private Point[][] yellowEntrance = { {new Point(503,355), new Point(503,317)},
+            {new Point(533,355), new Point(533,317)},
+            {new Point(562,355), new Point(562,317)},
+            {new Point(591,355), new Point(591,317)},
+            {new Point(619,355), new Point(619,317)},
+            {new Point(648,355), new Point(648,317)},
+            {new Point(678,355), new Point(678,317)},
+            {new Point(725,355), new Point(725,317)},
+	};
+	
+	private Point[][] greenEntrance = { {new Point(829,649), new Point(794,649)},
+            {new Point(829,619), new Point(794,619)},
+            {new Point(829,562), new Point(794,562)},
+            {new Point(829,534), new Point(794,534)},
+            {new Point(829,505), new Point(794,505)},
+            {new Point(829,475), new Point(794,475)},
+            {new Point(829,425), new Point(794,425)},
+	};
+	
+	private Point[][] redEntrance = { {new Point(1155,322), new Point(1155,360)},
+            {new Point(1125,322), new Point(1125,360)},
+            {new Point(1095,322), new Point(1095,360)},
+            {new Point(1065,322), new Point(1065,360)},
+            {new Point(1036,322), new Point(1036,360)},
+            {new Point(1008,322), new Point(1008,360)},
+            {new Point(978,322), new Point(978,360)},
+            {new Point(948,322), new Point(948,360)},
+            {new Point(900,322), new Point(900,360)},
+	};
+	
+	private Point[][] blueEntrance = { {new Point(796,29), new Point(831,29)},
+            {new Point(796,59), new Point(831,59)},
+            {new Point(796,88), new Point(831,88)},
+            {new Point(796,117), new Point(831,117)},
+            {new Point(796,144), new Point(831,144)},
+            {new Point(796,173), new Point(831,173)},
+            {new Point(796,203), new Point(831,203)},
+            {new Point(796,253), new Point(831,253)},
+            };
 	
 	private String[][] colorPos = {{"",""},
 			{"",""},
