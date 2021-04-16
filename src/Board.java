@@ -1363,6 +1363,7 @@ public class Board extends JFrame{
 
 	}
 	
+	
 	public void move(JPanel lable, int x, String color) {
 		
 		for(int i = 0; i<=67; i++) {
