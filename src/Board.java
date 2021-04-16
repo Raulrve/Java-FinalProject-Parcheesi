@@ -788,10 +788,16 @@ public class Board extends JFrame{
 						if(yellowBN == 4) {
 							endTurn.setVisible(true);
 						}
+						if(moves == 0) {
+							endTurn.setVisible(true);
+						}
 					}
 					else if(currentPlayer == 2) {
 						moveRed5();
 						if(redBN == 4) {
+							endTurn.setVisible(true);
+						}
+						if(moves == 0) {
 							endTurn.setVisible(true);
 						}
 					}
@@ -1172,173 +1178,189 @@ public class Board extends JFrame{
 	}
 	
 	public void moveYellow5() {
-		if(dice1 + dice2 == 5) {
-			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
-				move(yellow1, 0, "yellow");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
-				move(yellow2, 0, "yellow");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
-				move(yellow3, 0, "yellow");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
-				move(yellow4, 0, "yellow");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-		}
-		else if(dice1 == 5) {
-			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
-				move(yellow1, 0, "yellow");
-				dice1 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
-				move(yellow2, 0, "yellow");
-				dice1 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
-				move(yellow3, 0, "yellow");
-				dice1 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
-				move(yellow4, 0, "yellow");
-				dice1 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
+		if(colorPos[0][1] != "yellow") {
+			if(dice1 + dice2 == 5) {
+				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+					move(yellow1, 0, "yellow");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+					move(yellow2, 0, "yellow");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+					move(yellow3, 0, "yellow");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+					move(yellow4, 0, "yellow");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
 			}
 		}
-		if(dice2 == 5) {
-			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
-				move(yellow1, 0, "yellow");
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
-				move(yellow2, 0, "yellow");
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
-				move(yellow3, 0, "yellow");
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
-			}
-			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
-				move(yellow4, 0, "yellow");
-				dice2 = 0;
-				moves = moves - 1;
-				yellowBN = yellowBN - 1;
+		if(colorPos[0][1] != "yellow") {
+			if(dice1 == 5) {
+				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+					move(yellow1, 0, "yellow");
+					dice1 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+					move(yellow2, 0, "yellow");
+					dice1 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+					move(yellow3, 0, "yellow");
+					dice1 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+					move(yellow4, 0, "yellow");
+					dice1 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
 			}
 		}
+		if(colorPos[0][1] != "yellow") {
+			if(dice2 == 5) {
+				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+					move(yellow1, 0, "yellow");
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+					move(yellow2, 0, "yellow");
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+					move(yellow3, 0, "yellow");
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+					move(yellow4, 0, "yellow");
+					dice2 = 0;
+					moves = moves - 1;
+					yellowBN = yellowBN - 1;
+				}
+			}
+		}
+
 	}
 	
 	public void moveRed5() {
-		if(dice1 + dice2 == 5) {
-			if(Arrays.asList(redb).contains(red1.getLocation())) {
-				move(red1, 34, "red");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red2.getLocation())) {
-				move(red2, 34, "red");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red3.getLocation())) {
-				move(red3, 34, "red");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red4.getLocation())) {
-				move(red4, 34, "red");
-				dice1 = 0;
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-		}
-		else if(dice1 == 5) {
-			if(Arrays.asList(redb).contains(red1.getLocation())) {
-				move(red1, 34, "red");
-				dice1 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red2.getLocation())) {
-				move(red2, 34, "red");
-				dice1 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red3.getLocation())) {
-				move(red3, 34, "red");
-				dice1 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red4.getLocation())) {
-				move(red4, 34, "red");
-				dice1 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
+		if(colorPos[34][1] != "red") {
+			if(dice1 + dice2 == 5) {
+				if(Arrays.asList(redb).contains(red1.getLocation())) {
+					move(red1, 34, "red");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red2.getLocation())) {
+					move(red2, 34, "red");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red3.getLocation())) {
+					move(red3, 34, "red");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red4.getLocation())) {
+					move(red4, 34, "red");
+					dice1 = 0;
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
 			}
 		}
-		if(dice2 == 5) {
-			if(Arrays.asList(redb).contains(red1.getLocation())) {
-				move(red1, 34, "red");
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red2.getLocation())) {
-				move(red2, 34, "red");
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red3.getLocation())) {
-				move(red3, 34, "red");
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
-			}
-			else if(Arrays.asList(redb).contains(red4.getLocation())) {
-				move(red4, 34, "red");
-				dice2 = 0;
-				moves = moves - 1;
-				redBN = redBN - 1;
+
+		if(colorPos[34][1] != "red") {
+			if(dice1 == 5) {
+				if(Arrays.asList(redb).contains(red1.getLocation())) {
+					move(red1, 34, "red");
+					dice1 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red2.getLocation())) {
+					move(red2, 34, "red");
+					dice1 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red3.getLocation())) {
+					move(red3, 34, "red");
+					dice1 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red4.getLocation())) {
+					move(red4, 34, "red");
+					dice1 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
 			}
 		}
+
+		if(colorPos[34][1] != "red") {
+			if(dice2 == 5) {
+				if(Arrays.asList(redb).contains(red1.getLocation())) {
+					move(red1, 34, "red");
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red2.getLocation())) {
+					move(red2, 34, "red");
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red3.getLocation())) {
+					move(red3, 34, "red");
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+				else if(Arrays.asList(redb).contains(red4.getLocation())) {
+					move(red4, 34, "red");
+					dice2 = 0;
+					moves = moves - 1;
+					redBN = redBN - 1;
+				}
+			}
+		}
+
 	}
 	
 	public void move(JPanel lable, int x, String color) {
@@ -1476,18 +1498,31 @@ public class Board extends JFrame{
 			int dest1 = x+dice1;
 			int dest2 = x+dice2;
 			
+			if(dest1 > 67) {
+				dest1 = dest1 - 68;
+			}
+			if(dest2 > 67) {
+				dest2 = dest2 - 68;
+			}
+			
 			showDice1.setVisible(true);
 			showDice1.setText(String.valueOf(dice1));
 			showDice2.setVisible(true);
 			showDice2.setText(String.valueOf(dice2));
 			
-			for(int i = x + 1; i<=dest1; i++) {
+			for(int i = x + 1; i!=dest1+1; i++) {
+				if(i == 68) {
+					i = 0;
+				}
 				if(colorPos[i][1] != "") {
 					showDice1.setVisible(false);
 				}
 			}
 			
-			for(int i = x + 1; i<=dest2; i++) {
+			for(int i = x + 1; i!=dest2+1; i++) {
+				if(i == 68) {
+					i = 0;
+				}
 				if(colorPos[i][1] != "") {
 					showDice2.setVisible(false);
 				}
