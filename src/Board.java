@@ -672,6 +672,7 @@ public class Board extends JFrame{
 				int dice2 = rand.nextInt(6) + 1;
 				rollDice.setVisible(false);
 				stopDice();
+				int diceSum = dice1 + dice2;
 				
 				//set left dice
 				if(dice1 == 1) {
@@ -724,6 +725,22 @@ public class Board extends JFrame{
 				
 				
 				if(first) {
+					if(currentPlayer == 1) {
+						firstSum += diceSum;
+						firstPlayer = 1;
+						
+					}
+					else {
+						if(diceSum > firstSum) {
+							firstSum = diceSum;
+							firstPlayer = currentPlayer;
+						}
+					}
+					if(currentPlayer == players) {
+						first = false;
+						currentPlayer = firstPlayer -1;
+					}
+					
 					endTurn.setVisible(true);
 				}	
 			}
@@ -893,6 +910,8 @@ public class Board extends JFrame{
 	JLayeredPane layeredPane = new JLayeredPane();
 	private int players;
 	private int currentPlayer = 1;
+	private int firstPlayer;
+	private int firstSum = 0;
 	
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
