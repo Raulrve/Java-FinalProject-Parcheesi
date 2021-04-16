@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -204,72 +205,6 @@ public class Board extends JFrame{
 			
 		}
 		if(playerNumber >= 3) {
-			//verde
-			try {
-                image = ImageIO.read(new File("./Images/Green1.png"));
-
-                JLabel green1label = new JLabel(new ImageIcon(image));
-                green1label.setLocation(0, 0);
-                green1label.setBackground(null);
-                green1.add(green1label);
-                green1.setSize(25,30);
-                green1.setOpaque(false);
-                green1.setLocation(greenb[0]);
-                layeredPane.add(green1, layeredPane.MODAL_LAYER);
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
-            try {
-                image = ImageIO.read(new File("./Images/Green2.png"));
-
-                JLabel green2label = new JLabel(new ImageIcon(image));
-                green2label.setLocation(0, 0);
-                green2label.setBackground(null);
-                green2.add(green2label);
-                green2.setSize(25,30);
-                green2.setOpaque(false);
-                green2.setLocation(greenb[1]);
-                layeredPane.add(green2, layeredPane.MODAL_LAYER);
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-
-            try {
-                image = ImageIO.read(new File("./Images/Green3.png"));
-
-                JLabel green3label = new JLabel(new ImageIcon(image));
-                green3label.setLocation(0, 0);
-                green3label.setBackground(null);
-                green3.add(green3label);
-                green3.setSize(25,30);
-                green3.setOpaque(false);
-                green3.setLocation(greenb[2]);
-                layeredPane.add(green3, layeredPane.MODAL_LAYER);
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            try {
-                image = ImageIO.read(new File("./Images/Green4.png"));
-
-                JLabel green4label = new JLabel(new ImageIcon(image));
-                green4label.setLocation(0, 0);
-                green4label.setBackground(null);
-                green4.add(green4label);
-                green4.setSize(25,30);
-                green4.setOpaque(false);
-                green4.setLocation(greenb[3]);
-                layeredPane.add(green4, layeredPane.MODAL_LAYER);
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-			
-		}
-		if(playerNumber >= 4) {
 			//azul
 			try {
                 image = ImageIO.read(new File("./Images/Blue1.png"));
@@ -331,6 +266,73 @@ public class Board extends JFrame{
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
+			
+		}
+		if(playerNumber >= 4) {
+			//verde
+            try {
+                image = ImageIO.read(new File("./Images/Green1.png"));
+
+                JLabel green1label = new JLabel(new ImageIcon(image));
+                green1label.setLocation(0, 0);
+                green1label.setBackground(null);
+                green1.add(green1label);
+                green1.setSize(25,30);
+                green1.setOpaque(false);
+                green1.setLocation(greenb[0]);
+                layeredPane.add(green1, layeredPane.MODAL_LAYER);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            try {
+                image = ImageIO.read(new File("./Images/Green2.png"));
+
+                JLabel green2label = new JLabel(new ImageIcon(image));
+                green2label.setLocation(0, 0);
+                green2label.setBackground(null);
+                green2.add(green2label);
+                green2.setSize(25,30);
+                green2.setOpaque(false);
+                green2.setLocation(greenb[1]);
+                layeredPane.add(green2, layeredPane.MODAL_LAYER);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            try {
+                image = ImageIO.read(new File("./Images/Green3.png"));
+
+                JLabel green3label = new JLabel(new ImageIcon(image));
+                green3label.setLocation(0, 0);
+                green3label.setBackground(null);
+                green3.add(green3label);
+                green3.setSize(25,30);
+                green3.setOpaque(false);
+                green3.setLocation(greenb[2]);
+                layeredPane.add(green3, layeredPane.MODAL_LAYER);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            try {
+                image = ImageIO.read(new File("./Images/Green4.png"));
+
+                JLabel green4label = new JLabel(new ImageIcon(image));
+                green4label.setLocation(0, 0);
+                green4label.setBackground(null);
+                green4.add(green4label);
+                green4.setSize(25,30);
+                green4.setOpaque(false);
+                green4.setLocation(greenb[3]);
+                layeredPane.add(green4, layeredPane.MODAL_LAYER);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
 		}
 	}
 	public void userInterface() {
@@ -647,6 +649,7 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				moves = 2;
 				stopDice();
 				dadoizquierda6.setVisible(true);
 				dadoderecha6.setVisible(true);
@@ -660,8 +663,8 @@ public class Board extends JFrame{
 		
 		buttonPanel.setSize(287,75);
 		buttonPanel.setLocation(80, 370);
-		buttonPanel.setBackground(Color.white);
-		button1.setSize(71,75);
+		buttonPanel.setOpaque(false);
+		button1.setSize(300, 100);
 		button1.setLocation(0,0);
 		buttonPanel.add(button1);
 		
@@ -672,6 +675,7 @@ public class Board extends JFrame{
 		button4.setSize(71,75);
 		buttonPanel.add(button4);
 		
+		buttonPanel.setVisible(false);
 		
 		
 		layeredPane.add(buttonPanel, layeredPane.POPUP_LAYER);
@@ -778,13 +782,28 @@ public class Board extends JFrame{
 				}
 				
 				else {
-				
-				showDice1.setVisible(true);
-				showDice1.setText(String.valueOf(dice1));
-				
-				
-				showDice2.setVisible(true);
-				showDice2.setText(String.valueOf(dice2));
+					
+					if(currentPlayer == 1) {
+						moveYellow5();
+						if(yellowBN == 4) {
+							endTurn.setVisible(true);
+						}
+					}
+					else if(currentPlayer == 2) {
+						moveRed5();
+						if(redBN == 4) {
+							endTurn.setVisible(true);
+						}
+					}
+					
+					buttonPanel.setVisible(true);
+					
+//					showDice1.setVisible(true);
+//					showDice1.setText(String.valueOf(dice1));
+//					
+//					
+//					showDice2.setVisible(true);
+//					showDice2.setText(String.valueOf(dice2));
 				
 				
 				}
@@ -794,10 +813,307 @@ public class Board extends JFrame{
 			
 		});
 		
+
 		
+		button1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dbtn = 1;
+				if(currentPlayer == 1) {
+					check(yellow1, "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						check(red1, "red");
+					}
+					else {
+						check(blue1, "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					check(red1, "red");
+				}
+				else {
+					check(green1, "red");
+				}
+				
+				if(moves == 0) {
+					endTurn.setVisible(true);
+				}
+			}
+		});
 		
+		button2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dbtn = 2;
+				if(currentPlayer == 1) {
+					check(yellow2, "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						check(red2, "red");
+					}
+					else {
+						check(blue2, "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					check(red2, "red");
+				}
+				else {
+					check(green2, "green");
+				}
+				
+				if(moves == 0) {
+					endTurn.setVisible(true);
+				}
+			}
+		});
+		
+		button3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dbtn = 3;
+				if(currentPlayer == 1) {
+					check(yellow3, "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						check(red3, "red");
+					}
+					else {
+						check(blue3, "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					check(red3, "red");
+				}
+				else {
+					check(green3, "green");
+				}
+				
+				if(moves == 0) {
+					endTurn.setVisible(true);
+				}
+			}
+		});
+		
+		button4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dbtn = 4;
+				if(currentPlayer == 1) {
+					check(yellow4, "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						check(red4, "red");
+					}
+					else {
+						check(blue4, "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					check(red4, "red");
+				}
+				else {
+					check(green4, "green");
+				}
+				
+				if(moves == 0) {
+					endTurn.setVisible(true);
+				}
+			}
+		});
+		
+		showDice1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(currentPlayer == 1) {
+					move(returnPawn(dbtn, "yellow"), dest[0], "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						move(returnPawn(dbtn, "red"), dest[0], "red");
+					}
+					else {
+						move(returnPawn(dbtn, "blue"), dest[0], "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					move(returnPawn(dbtn, "red"), dest[0], "red");
+				}
+				else {
+					move(returnPawn(dbtn, "green"), dest[0], "green");
+				}
+				
+				dice1 = 0;
+				if(dice1 == 0 && dice2 ==0) {
+					endTurn.setVisible(true);
+				}
+				
+				
+				if(dbtn == 1) {
+					button2.doClick();
+					button3.doClick();
+					button4.doClick();
+					button1.doClick();
+				}
+				else if(dbtn == 2) {
+					button3.doClick();
+					button4.doClick();
+					button1.doClick();
+					button2.doClick();
+				}
+				else if(dbtn == 3) {
+					button4.doClick();
+					button1.doClick();
+					button2.doClick();
+					button3.doClick();
+				}
+				else {
+					button1.doClick();
+					button2.doClick();
+					button3.doClick();
+					button4.doClick();
+				}
+				
+				
+				
+				
+			}
+		});
+		
+		showDice2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(currentPlayer == 1) {
+					move(returnPawn(dbtn, "yellow"), dest[1], "yellow");
+				}
+				else if(currentPlayer == 2) {
+					if(players == 2) {
+						move(returnPawn(dbtn, "red"), dest[1], "red");
+					}
+					else {
+						move(returnPawn(dbtn, "blue"), dest[1], "blue");
+					}
+				}
+				else if(currentPlayer == 3) {
+					move(returnPawn(dbtn, "red"), dest[1], "red");
+				}
+				else {
+					move(returnPawn(dbtn, "green"), dest[1], "green");
+				}
+				
+				dice2 = 0;
+				if(dice1 == 0 && dice2 ==0) {
+					endTurn.setVisible(true);
+				}
+				
+				if(dbtn == 1) {
+					button2.doClick();
+					button3.doClick();
+					button4.doClick();
+					button1.doClick();
+				}
+				else if(dbtn == 2) {
+					button3.doClick();
+					button4.doClick();
+					button1.doClick();
+					button2.doClick();
+				}
+				else if(dbtn == 3) {
+					button4.doClick();
+					button1.doClick();
+					button2.doClick();
+					button3.doClick();
+				}
+				else {
+					button1.doClick();
+					button2.doClick();
+					button3.doClick();
+					button4.doClick();
+				}
+				
+
+			}
+		});
 		
 	}
+	
+	public JPanel returnPawn(int x, String color) {
+		if(color == "yellow") {
+			if(x == 1) {
+				return yellow1;
+			}
+			else if(x == 2) {
+				return yellow2;
+			}
+			else if(x == 3) {
+				return yellow3;
+			}
+			else if(x == 4) {
+				return yellow4;
+			}
+		}
+		else if(color == "red") {
+			if(x == 1) {
+				return red1;
+			}
+			else if(x == 2) {
+				return red2;
+			}
+			else if(x == 3) {
+				return red3;
+			}
+			else if(x == 4) {
+				return red4;
+			}
+		}
+		else if(color == "blue") {
+			if(x == 1) {
+				return blue1;
+			}
+			else if(x == 2) {
+				return blue2;
+			}
+			else if(x == 3) {
+				return blue3;
+			}
+			else if(x == 4) {
+				return blue4;
+			}
+		}
+		else {
+			if(x == 1) {
+				return green1;
+			}
+			else if(x == 2) {
+				return green2;
+			}
+			else if(x == 3) {
+				return green3;
+			}
+			else {
+				return green4;
+			}
+		}
+		return yellow1;
+	}
+	
 	public void nextPlayer() {
 		endTurn.setVisible(false);
 		rollDice.setVisible(true);
@@ -855,6 +1171,409 @@ public class Board extends JFrame{
 		
 	}
 	
+	public void moveYellow5() {
+		if(dice1 + dice2 == 5) {
+			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+				move(yellow1, 0, "yellow");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+				move(yellow2, 0, "yellow");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+				move(yellow3, 0, "yellow");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+				move(yellow4, 0, "yellow");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+		}
+		else if(dice1 == 5) {
+			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+				move(yellow1, 0, "yellow");
+				dice1 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+				move(yellow2, 0, "yellow");
+				dice1 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+				move(yellow3, 0, "yellow");
+				dice1 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+				move(yellow4, 0, "yellow");
+				dice1 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+		}
+		if(dice2 == 5) {
+			if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
+				move(yellow1, 0, "yellow");
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
+				move(yellow2, 0, "yellow");
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
+				move(yellow3, 0, "yellow");
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+			else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
+				move(yellow4, 0, "yellow");
+				dice2 = 0;
+				moves = moves - 1;
+				yellowBN = yellowBN - 1;
+			}
+		}
+	}
+	
+	public void moveRed5() {
+		if(dice1 + dice2 == 5) {
+			if(Arrays.asList(redb).contains(red1.getLocation())) {
+				move(red1, 34, "red");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red2.getLocation())) {
+				move(red2, 34, "red");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red3.getLocation())) {
+				move(red3, 34, "red");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red4.getLocation())) {
+				move(red4, 34, "red");
+				dice1 = 0;
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+		}
+		else if(dice1 == 5) {
+			if(Arrays.asList(redb).contains(red1.getLocation())) {
+				move(red1, 34, "red");
+				dice1 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red2.getLocation())) {
+				move(red2, 34, "red");
+				dice1 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red3.getLocation())) {
+				move(red3, 34, "red");
+				dice1 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red4.getLocation())) {
+				move(red4, 34, "red");
+				dice1 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+		}
+		if(dice2 == 5) {
+			if(Arrays.asList(redb).contains(red1.getLocation())) {
+				move(red1, 34, "red");
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red2.getLocation())) {
+				move(red2, 34, "red");
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red3.getLocation())) {
+				move(red3, 34, "red");
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+			else if(Arrays.asList(redb).contains(red4.getLocation())) {
+				move(red4, 34, "red");
+				dice2 = 0;
+				moves = moves - 1;
+				redBN = redBN - 1;
+			}
+		}
+	}
+	
+	public void move(JPanel lable, int x, String color) {
+		
+		for(int i = 0; i<=67; i++) {
+			if(colorPos[i][0] == color) {
+				if(lable.getX() == boardp[i][0].getX() && lable.getY() == boardp[i][0].getY()) {
+					colorPos[i][0] = "";
+					if(colorPos[i][1] != "") {
+						colorPos[i][1] = "";
+						colorPos[i][0] = color;
+						
+						if(color == "yellow") {
+							if(yellow1.getX() == boardp[i][1].getX() && yellow1.getY() == boardp[i][1].getY()) {
+								yellow1.setLocation(boardp[i][0]);
+							}
+							else if(yellow2.getX() == boardp[i][1].getX() && yellow2.getY() == boardp[i][1].getY()) {
+								yellow2.setLocation(boardp[i][0]);
+							}
+							else if(yellow3.getX() == boardp[i][1].getX() && yellow3.getY() == boardp[i][1].getY()) {
+								yellow3.setLocation(boardp[i][0]);
+							}
+							else if(yellow4.getX() == boardp[i][1].getX() && yellow4.getY() == boardp[i][1].getY()) {
+								yellow4.setLocation(boardp[i][0]);
+							}
+						}
+						else if(color == "red") {
+							if(red1.getX() == boardp[i][1].getX() && red1.getY() == boardp[i][1].getY()) {
+								red1.setLocation(boardp[i][0]);
+							}
+							else if(red2.getX() == boardp[i][1].getX() && red2.getY() == boardp[i][1].getY()) {
+								red2.setLocation(boardp[i][0]);
+							}
+							else if(red3.getX() == boardp[i][1].getX() && red3.getY() == boardp[i][1].getY()) {
+								red3.setLocation(boardp[i][0]);
+							}
+							else if(red4.getX() == boardp[i][1].getX() && red4.getY() == boardp[i][1].getY()) {
+								red4.setLocation(boardp[i][0]);
+							}
+						}
+						else if(color == "blue") {
+							if(blue1.getX() == boardp[i][1].getX() && blue1.getY() == boardp[i][1].getY()) {
+								blue1.setLocation(boardp[i][0]);
+							}
+							else if(blue2.getX() == boardp[i][1].getX() && blue2.getY() == boardp[i][1].getY()) {
+								blue2.setLocation(boardp[i][0]);
+							}
+							else if(blue3.getX() == boardp[i][1].getX() && blue3.getY() == boardp[i][1].getY()) {
+								blue3.setLocation(boardp[i][0]);
+							}
+							else if(blue4.getX() == boardp[i][1].getX() && blue4.getY() == boardp[i][1].getY()) {
+								blue4.setLocation(boardp[i][0]);
+							}
+						}
+						else if(color == "green") {
+							if(green1.getX() == boardp[i][1].getX() && green1.getY() == boardp[i][1].getY()) {
+								green1.setLocation(boardp[i][0]);
+							}
+							else if(green2.getX() == boardp[i][1].getX() && green2.getY() == boardp[i][1].getY()) {
+								green2.setLocation(boardp[i][0]);
+							}
+							else if(green3.getX() == boardp[i][1].getX() && green3.getY() == boardp[i][1].getY()) {
+								green3.setLocation(boardp[i][0]);
+							}
+							else if(green4.getX() == boardp[i][1].getX() && green4.getY() == boardp[i][1].getY()) {
+								green4.setLocation(boardp[i][0]);
+							}
+						}
+					}
+					break;
+				}
+			}
+			else if(colorPos[x][1] == color) {
+				if(lable.getX() == boardp[i][1].getX() && lable.getY() == boardp[i][1].getY()) {
+					colorPos[i][1] = "";
+					break;
+				}
+			}
+				
+		}
+
+		if(colorPos[x][0] != color) {
+			if (colorPos[x][0] != "") {
+				remove(x);
+			}
+			colorPos[x][0] = color;
+			lable.setLocation(boardp[x][0]);
+
+		}
+		else if(colorPos[x][0] == color) {
+			colorPos[x][1] = color;
+			lable.setLocation(boardp[x][1]);
+
+		}
+		moves = moves - 1;
+	}
+	
+	public void check(JPanel lable, String color) {
+		int x;
+		int y;
+		
+		if(Arrays.asList(yellowb).contains(lable.getLocation())) {
+			showDice1.setVisible(false);
+			showDice2.setVisible(false);
+		}
+		else if(Arrays.asList(redb).contains(lable.getLocation())) {
+			showDice1.setVisible(false);
+			showDice2.setVisible(false);
+		}
+		else if(Arrays.asList(blueb).contains(lable.getLocation())) {
+			showDice1.setVisible(false);
+			showDice2.setVisible(false);
+		}
+		else if(Arrays.asList(greenb).contains(lable.getLocation())) {
+			showDice1.setVisible(false);
+			showDice2.setVisible(false);
+		}
+		
+		else {
+			for(x = 0; x<=67; x++) {
+				if(colorPos[x][0] == color) {
+					if(lable.getX() == boardp[x][0].getX() && lable.getY() == boardp[x][0].getY()) {
+						y = 0;
+						break;
+					}
+				}
+				if(colorPos[x][1] == color) {
+					if(lable.getX() == boardp[x][1].getX() && lable.getY() == boardp[x][1].getY()) {
+						y = 1;
+						break;
+					}
+				}
+					
+			}
+			int dest1 = x+dice1;
+			int dest2 = x+dice2;
+			
+			showDice1.setVisible(true);
+			showDice1.setText(String.valueOf(dice1));
+			showDice2.setVisible(true);
+			showDice2.setText(String.valueOf(dice2));
+			
+			for(int i = x + 1; i<=dest1; i++) {
+				if(colorPos[i][1] != "") {
+					showDice1.setVisible(false);
+				}
+			}
+			
+			for(int i = x + 1; i<=dest2; i++) {
+				if(colorPos[i][1] != "") {
+					showDice2.setVisible(false);
+				}
+			}
+			
+			if(dice1 == 0) {
+				showDice1.setVisible(false);
+			}
+			
+			if(dice2 == 0) {
+				showDice2.setVisible(false);
+			}
+			
+			dest[0] = dest1;
+			dest[1] = dest2;
+		}
+
+
+
+	}
+	
+	public void remove(int x) {
+		if(colorPos[x][0] == "yellow") {
+			if(yellow1.getX() == boardp[x][0].getX() && yellow1.getY() == boardp[x][0].getY()) {
+				yellow1.setLocation(yellowb[0]);
+			}
+			else if(yellow2.getX() == boardp[x][0].getX() && yellow2.getY() == boardp[x][0].getY()) {
+				yellow2.setLocation(yellowb[1]);
+			}
+			else if(yellow3.getX() == boardp[x][0].getX() && yellow3.getY() == boardp[x][0].getY()) {
+				yellow3.setLocation(yellowb[2]);
+			}
+			else if(yellow4.getX() == boardp[x][0].getX() && yellow4.getY() == boardp[x][0].getY()) {
+				yellow4.setLocation(yellowb[3]);
+			}
+			yellowBN = yellowBN + 1;
+		}
+		else if(colorPos[x][0] == "blue") {
+			if(blue1.getX() == boardp[x][0].getX() && blue1.getY() == boardp[x][0].getY()) {
+				blue1.setLocation(blueb[0]);
+			}
+			else if(blue2.getX() == boardp[x][0].getX() && blue2.getY() == boardp[x][0].getY()) {
+				blue2.setLocation(blueb[1]);
+			}
+			else if(blue3.getX() == boardp[x][0].getX() && blue3.getY() == boardp[x][0].getY()) {
+				blue3.setLocation(blueb[2]);
+			}
+			else if(blue4.getX() == boardp[x][0].getX() && blue4.getY() == boardp[x][0].getY()) {
+				blue4.setLocation(blueb[3]);
+			}
+			blueBN = blueBN + 1;
+		}
+		else if(colorPos[x][0] == "red") {
+
+			if(red1.getX() == boardp[x][0].getX() && red1.getY() == boardp[x][0].getY()) {
+				red1.setLocation(redb[0]);
+		
+			}
+			else if(red2.getX() == boardp[x][0].getX() && red2.getY() == boardp[x][0].getY()) {
+				red2.setLocation(redb[1]);
+			}
+			else if(red3.getX() == boardp[x][0].getX() && red3.getY() == boardp[x][0].getY()) {
+				red3.setLocation(redb[2]);
+			}
+			else if(red4.getX() == boardp[x][0].getX() && red4.getY() == boardp[x][0].getY()) {
+				red4.setLocation(redb[3]);
+			}
+			redBN = redBN + 1;
+		}
+		else if(colorPos[x][0] == "green") {
+			if(green1.getX() == boardp[x][0].getX() && green1.getY() == boardp[x][0].getY()) {
+				green1.setLocation(greenb[0]);
+			}
+			else if(green2.getX() == boardp[x][0].getX() && green2.getY() == boardp[x][0].getY()) {
+				green2.setLocation(greenb[1]);
+			}
+			else if(green3.getX() == boardp[x][0].getX() && green3.getY() == boardp[x][0].getY()) {
+				green3.setLocation(greenb[2]);
+			}
+			else if(green4.getX() == boardp[x][0].getX() && green4.getY() == boardp[x][0].getY()) {
+				green4.setLocation(greenb[3]);
+			}
+			greenBN = greenBN + 1;
+		}
+	}
+	
 	public void stopDice() {
 		dadoizquierda1.setVisible(false);
 		dadoizquierda2.setVisible(false);
@@ -873,6 +1592,7 @@ public class Board extends JFrame{
 	}
 	
 	public void diceShow(int x , int y) {}
+	
 	
 	
 	private JPanel yellow1 = new JPanel();
@@ -919,8 +1639,13 @@ public class Board extends JFrame{
 	private Point[] blueb = {new Point(603,130), new Point(603,80),
 								new Point(553,80), new Point(553,130)};
 	
-	
-	
+	private int yellowBN = 4;
+	private int redBN = 4;
+	private int blueBN = 4;
+	private int greenBN = 4;
+	private int moves = 2;
+	private int dbtn;
+	private int[] dest = {0, 0};
 	private boolean first = true;
 	private Random rand = new Random();
 	private JButton endTurn = new JButton("End Turn");
@@ -949,7 +1674,76 @@ public class Board extends JFrame{
 	private JButton button3 = new JButton("3");
 	private JButton button4 = new JButton("4");
 	
-	
+	private String[][] colorPos = {{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""}
+			
+	};
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
 			{new Point(620,395), new Point(620,433)},
