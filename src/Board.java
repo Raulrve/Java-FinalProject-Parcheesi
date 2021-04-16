@@ -651,12 +651,27 @@ public class Board extends JFrame{
 				dadoizquierda6.setVisible(true);
 				dadoderecha6.setVisible(true);
 				
+				showDice1.setVisible(false);
+				showDice2.setVisible(false);
 				currentPlayer++;
 				nextPlayer();
 			}
 		});
 		
 		
+		showDice1.setSize(130,130);
+		showDice1.setLocation(80,500);
+		showDice1.setBackground(backgroundColor);
+		showDice1.setVisible(false);
+		showDice1.setFont(new Font("Calibri",Font.BOLD,70));
+		layeredPane.add(showDice1, layeredPane.POPUP_LAYER);
+		
+		showDice2.setSize(130,130);
+		showDice2.setLocation(240,500);
+		showDice2.setBackground(backgroundColor);
+		showDice2.setVisible(false);
+		showDice2.setFont(new Font("Calibri",Font.BOLD,70));
+		layeredPane.add(showDice2, layeredPane.POPUP_LAYER);
 		
 		
 		rollDice.setLocation(150,230);
@@ -668,8 +683,8 @@ public class Board extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int dice1 = rand.nextInt(6) + 1;
-				int dice2 = rand.nextInt(6) + 1;
+				dice1 = rand.nextInt(6) + 1;
+				dice2 = rand.nextInt(6) + 1;
 				rollDice.setVisible(false);
 				stopDice();
 				int diceSum = dice1 + dice2;
@@ -742,7 +757,20 @@ public class Board extends JFrame{
 					}
 					
 					endTurn.setVisible(true);
-				}	
+				}
+				
+				else {
+				
+				showDice1.setVisible(true);
+				showDice1.setText(String.valueOf(dice1));
+				
+				
+				showDice2.setVisible(true);
+				showDice2.setText(String.valueOf(dice2));
+				
+				
+				}
+				
 			}
 			
 			
@@ -750,26 +778,7 @@ public class Board extends JFrame{
 		
 		
 		
-		/*while(currentPlayer != players) {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
-		*/
 		
-		/*if(first) {
-			for (int i = 1; i <= players; i++) {
-				if(i == 1) {
-					playerName.setText("Player 1");
-					
-				}	
-			}
-		}
-		
-		*/
 	}
 	public void nextPlayer() {
 		endTurn.setVisible(false);
@@ -912,6 +921,10 @@ public class Board extends JFrame{
 	private int currentPlayer = 1;
 	private int firstPlayer;
 	private int firstSum = 0;
+	private int dice1;
+	private int dice2;
+	private JButton showDice1 = new JButton();
+	private JButton showDice2 = new JButton();
 	
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
