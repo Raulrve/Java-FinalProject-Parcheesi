@@ -658,6 +658,24 @@ public class Board extends JFrame{
 			}
 		});
 		
+		buttonPanel.setSize(287,75);
+		buttonPanel.setLocation(80, 370);
+		buttonPanel.setBackground(Color.white);
+		button1.setSize(71,75);
+		button1.setLocation(0,0);
+		buttonPanel.add(button1);
+		
+		button2.setSize(71,75);
+		buttonPanel.add(button2);
+		button3.setSize(71,75);
+		buttonPanel.add(button3);
+		button4.setSize(71,75);
+		buttonPanel.add(button4);
+		
+		
+		
+		layeredPane.add(buttonPanel, layeredPane.POPUP_LAYER);
+		
 		
 		showDice1.setSize(130,130);
 		showDice1.setLocation(80,500);
@@ -917,6 +935,7 @@ public class Board extends JFrame{
 	private JPanel background = new JPanel();
 	static Border border = new LineBorder(Color.BLACK, 5, true);
 	JLayeredPane layeredPane = new JLayeredPane();
+	private JPanel buttonPanel = new JPanel();
 	private int players;
 	private int currentPlayer = 1;
 	private int firstPlayer;
@@ -925,6 +944,11 @@ public class Board extends JFrame{
 	private int dice2;
 	private JButton showDice1 = new JButton();
 	private JButton showDice2 = new JButton();
+	private JButton button1 = new JButton("1");
+	private JButton button2 = new JButton("2");
+	private JButton button3 = new JButton("3");
+	private JButton button4 = new JButton("4");
+	
 	
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
