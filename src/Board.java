@@ -649,7 +649,6 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				moves = 2;
 				stopDice();
 				dadoizquierda6.setVisible(true);
 				dadoderecha6.setVisible(true);
@@ -710,6 +709,7 @@ public class Board extends JFrame{
 				rollDice.setVisible(false);
 				stopDice();
 				int diceSum = dice1 + dice2;
+				
 				
 				//set left dice
 				if(dice1 == 1) {
@@ -788,18 +788,14 @@ public class Board extends JFrame{
 						if(yellowBN == 4) {
 							endTurn.setVisible(true);
 						}
-						if(moves == 0) {
-							endTurn.setVisible(true);
-						}
+
 					}
 					else if(currentPlayer == 2) {
 						moveRed5();
 						if(redBN == 4) {
 							endTurn.setVisible(true);
 						}
-						if(moves == 0) {
-							endTurn.setVisible(true);
-						}
+
 					}
 					
 					buttonPanel.setVisible(true);
@@ -850,9 +846,7 @@ public class Board extends JFrame{
 					check(green1, "red");
 				}
 				
-				if(moves == 0) {
-					endTurn.setVisible(true);
-				}
+
 			}
 		});
 		
@@ -886,9 +880,7 @@ public class Board extends JFrame{
 					check(green2, "green");
 				}
 				
-				if(moves == 0) {
-					endTurn.setVisible(true);
-				}
+
 			}
 		});
 		
@@ -922,9 +914,7 @@ public class Board extends JFrame{
 					check(green3, "green");
 				}
 				
-				if(moves == 0) {
-					endTurn.setVisible(true);
-				}
+
 			}
 		});
 		
@@ -959,9 +949,7 @@ public class Board extends JFrame{
 					check(green4, "green");
 				}
 				
-				if(moves == 0) {
-					endTurn.setVisible(true);
-				}
+
 			}
 		});
 		
@@ -1214,30 +1202,27 @@ public class Board extends JFrame{
 					move(yellow1, 0, "yellow");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
 					move(yellow2, 0, "yellow");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
 					move(yellow3, 0, "yellow");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
 					move(yellow4, 0, "yellow");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
+				endTurn.setVisible(true);
 			}
 		}
 		if(colorPos[0][1] != "yellow") {
@@ -1245,25 +1230,21 @@ public class Board extends JFrame{
 				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
 					move(yellow1, 0, "yellow");
 					dice1 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
 					move(yellow2, 0, "yellow");
 					dice1 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
 					move(yellow3, 0, "yellow");
 					dice1 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
 					move(yellow4, 0, "yellow");
 					dice1 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 			}
@@ -1273,28 +1254,27 @@ public class Board extends JFrame{
 				if(Arrays.asList(yellowb).contains(yellow1.getLocation())) {
 					move(yellow1, 0, "yellow");
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow2.getLocation())) {
 					move(yellow2, 0, "yellow");
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow3.getLocation())) {
 					move(yellow3, 0, "yellow");
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 				else if(Arrays.asList(yellowb).contains(yellow4.getLocation())) {
 					move(yellow4, 0, "yellow");
 					dice2 = 0;
-					moves = moves - 1;
 					yellowBN = yellowBN - 1;
 				}
 			}
+		}
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
 		}
 
 	}
@@ -1306,30 +1286,27 @@ public class Board extends JFrame{
 					move(red1, 34, "red");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red2.getLocation())) {
 					move(red2, 34, "red");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red3.getLocation())) {
 					move(red3, 34, "red");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red4.getLocation())) {
 					move(red4, 34, "red");
 					dice1 = 0;
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
+				endTurn.setVisible(true);
 			}
 		}
 
@@ -1338,25 +1315,21 @@ public class Board extends JFrame{
 				if(Arrays.asList(redb).contains(red1.getLocation())) {
 					move(red1, 34, "red");
 					dice1 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red2.getLocation())) {
 					move(red2, 34, "red");
 					dice1 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red3.getLocation())) {
 					move(red3, 34, "red");
 					dice1 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red4.getLocation())) {
 					move(red4, 34, "red");
 					dice1 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 			}
@@ -1367,28 +1340,28 @@ public class Board extends JFrame{
 				if(Arrays.asList(redb).contains(red1.getLocation())) {
 					move(red1, 34, "red");
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red2.getLocation())) {
 					move(red2, 34, "red");
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red3.getLocation())) {
 					move(red3, 34, "red");
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 				else if(Arrays.asList(redb).contains(red4.getLocation())) {
 					move(red4, 34, "red");
 					dice2 = 0;
-					moves = moves - 1;
 					redBN = redBN - 1;
 				}
 			}
+		}
+		
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
 		}
 
 	}
@@ -1396,6 +1369,7 @@ public class Board extends JFrame{
 	
 	public void move(JPanel lable, int x, String color) {
 		
+		//busca por todo
 		for(int i = 0; i<=67; i++) {
 			if(colorPos[i][0] == color) {
 				if(lable.getX() == boardp[i][0].getX() && lable.getY() == boardp[i][0].getY()) {
@@ -1464,7 +1438,7 @@ public class Board extends JFrame{
 					break;
 				}
 			}
-			else if(colorPos[x][1] == color) {
+			if(colorPos[i][1] == color) {
 				if(lable.getX() == boardp[i][1].getX() && lable.getY() == boardp[i][1].getY()) {
 					colorPos[i][1] = "";
 					break;
@@ -1486,7 +1460,6 @@ public class Board extends JFrame{
 			lable.setLocation(boardp[x][1]);
 
 		}
-		moves = moves - 1;
 	}
 	
 	public void check(JPanel lable, String color) {
@@ -1709,7 +1682,6 @@ public class Board extends JFrame{
 	private int redBN = 4;
 	private int blueBN = 4;
 	private int greenBN = 4;
-	private int moves = 2;
 	private int dbtn;
 	private int[] dest = {0, 0};
 	private boolean first = true;
