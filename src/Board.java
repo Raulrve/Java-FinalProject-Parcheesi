@@ -969,6 +969,7 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				lastDice = 1;
 				if(currentPlayer == 1) {
 					move(returnPawn(dbtn, "yellow"), dest[0], "yellow");
 				}
@@ -1029,6 +1030,7 @@ public class Board extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				lastDice = 2;
 				if(currentPlayer == 1) {
 					move(returnPawn(dbtn, "yellow"), dest[1], "yellow");
 				}
@@ -1567,6 +1569,19 @@ public class Board extends JFrame{
 	}
 	
 	public void remove(int x) {
+		if(lastDice == 1) {
+			dice1 = 20;
+			showDice1.setText("20");
+			showDice1.setVisible(true);
+		}
+		else if(lastDice == 2) {
+			dice2 = 20;
+			showDice2.setText("20");
+			showDice2.setVisible(true);
+		}
+		
+		
+		
 		if(colorPos[x][0] == "yellow") {
 			if(yellow1.getX() == boardp[x][0].getX() && yellow1.getY() == boardp[x][0].getY()) {
 				yellow1.setLocation(yellowb[0]);
@@ -1629,6 +1644,8 @@ public class Board extends JFrame{
 			}
 			greenBN = greenBN + 1;
 		}
+		
+		
 	}
 	
 	public void stopDice() {
@@ -1730,6 +1747,7 @@ public class Board extends JFrame{
 	private JButton button2 = new JButton("2");
 	private JButton button3 = new JButton("3");
 	private JButton button4 = new JButton("4");
+	private int lastDice = 0;
 	
 	private String[][] colorPos = {{"",""},
 			{"",""},
