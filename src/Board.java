@@ -656,10 +656,10 @@ public class Board extends JFrame{
 				showDice1.setVisible(false);
 				showDice2.setVisible(false);
 				
-				if(doubleDice) {
-					nextPlayer();
-					doubleDice = false;
-				}
+				if(doubleDice == true && allowDoubles == true) {
+                    nextPlayer();
+                    doubleDice = false;
+                }
 				else {
 					currentPlayer++;
 					nextPlayer();
@@ -802,21 +802,34 @@ public class Board extends JFrame{
 
 					}
 					else if(currentPlayer == 2) {
+						if(players == 2) {
+							moveRed5();
+							if(redBN == 4) {
+								endTurn.setVisible(true);
+							}
+						}
+						else {
+							moveBlue5();
+							if(blueBN == 4) {
+								endTurn.setVisible(true);
+							}
+						}
+					
+					}
+					else if(currentPlayer == 3) {
 						moveRed5();
 						if(redBN == 4) {
 							endTurn.setVisible(true);
 						}
-
 					}
-					
+					else {
+						moveGreen5();
+						if(greenBN == 4) {
+							endTurn.setVisible(true);
+						}
+					}
+						
 					buttonPanel.setVisible(true);
-					
-//					showDice1.setVisible(true);
-//					showDice1.setText(String.valueOf(dice1));
-//					
-//					
-//					showDice2.setVisible(true);
-//					showDice2.setText(String.valueOf(dice2));
 				
 				
 				}
@@ -854,7 +867,7 @@ public class Board extends JFrame{
 					check(red1, "red");
 				}
 				else {
-					check(green1, "red");
+					check(green1, "green");
 				}
 				
 
@@ -1153,6 +1166,9 @@ public class Board extends JFrame{
 		button4.setBackground(Color.CYAN);
 		button1.setBackground(Color.CYAN);
 		
+		if(first == false) {
+            allowDoubles = true;
+        }
 		
 		endTurn.setVisible(false);
 		rollDice.setVisible(true);
@@ -1297,6 +1313,174 @@ public class Board extends JFrame{
 
 	}
 	
+	public void moveGreen5() {
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
+		}
+		if(colorPos[17][1] != "green") {
+			if(dice1 + dice2 == 5) {
+				if(Arrays.asList(greenb).contains(green1.getLocation())) {
+					move(green1, 17, "green");
+					dice1 = 0;
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green2.getLocation())) {
+					move(green2, 17, "green");
+					dice1 = 0;
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green3.getLocation())) {
+					move(green3, 17, "green");
+					dice1 = 0;
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green4.getLocation())) {
+					move(green4, 17, "green");
+					dice1 = 0;
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				endTurn.setVisible(true);
+			}
+		}
+		if(colorPos[17][1] != "green") {
+			if(dice1 == 5) {
+				if(Arrays.asList(greenb).contains(green1.getLocation())) {
+					move(green1, 17, "green");
+					dice1 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green2.getLocation())) {
+					move(green2, 17, "green");
+					dice1 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green3.getLocation())) {
+					move(green3, 17, "green");
+					dice1 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green4.getLocation())) {
+					move(green4, 17, "green");
+					dice1 = 0;
+					greenBN = greenBN - 1;
+				}
+			}
+		}
+		if(colorPos[17][1] != "green") {
+			if(dice2 == 5) {
+				if(Arrays.asList(greenb).contains(green1.getLocation())) {
+					move(green1, 17, "green");
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green2.getLocation())) {
+					move(green2, 17, "green");
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green3.getLocation())) {
+					move(green3, 17, "green");
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+				else if(Arrays.asList(greenb).contains(green4.getLocation())) {
+					move(green4, 17, "green");
+					dice2 = 0;
+					greenBN = greenBN - 1;
+				}
+			}
+		}
+
+	}
+	
+	public void moveBlue5() {
+		if(dice1 == 5 && dice2 == dice1) {
+			endTurn.setVisible(true);
+		}
+		if(colorPos[51][1] != "blue") {
+			if(dice1 + dice2 == 5) {
+				if(Arrays.asList(blueb).contains(blue1.getLocation())) {
+					move(blue1, 51, "blue");
+					dice1 = 0;
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue2.getLocation())) {
+					move(blue2, 51, "blue");
+					dice1 = 0;
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue3.getLocation())) {
+					move(blue3, 51, "blue");
+					dice1 = 0;
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue4.getLocation())) {
+					move(blue4, 51, "blue");
+					dice1 = 0;
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				endTurn.setVisible(true);
+			}
+		}
+		if(colorPos[51][1] != "blue") {
+			if(dice1 == 5) {
+				if(Arrays.asList(blueb).contains(blue1.getLocation())) {
+					move(blue1, 51, "blue");
+					dice1 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue2.getLocation())) {
+					move(blue2, 51, "blue");
+					dice1 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue3.getLocation())) {
+					move(blue3, 51, "blue");
+					dice1 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue4.getLocation())) {
+					move(blue4, 51, "blue");
+					dice1 = 0;
+					blueBN = blueBN - 1;
+				}
+			}
+		}
+		if(colorPos[51][1] != "blue") {
+			if(dice2 == 5) {
+				if(Arrays.asList(blueb).contains(blue1.getLocation())) {
+					move(blue1, 51, "blue");
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue2.getLocation())) {
+					move(blue2, 51, "blue");
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue3.getLocation())) {
+					move(blue3, 51, "blue");
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+				else if(Arrays.asList(blueb).contains(blue4.getLocation())) {
+					move(blue4, 51, "blue");
+					dice2 = 0;
+					blueBN = blueBN - 1;
+				}
+			}
+		}
+
+	}
+	
 	public void moveRed5() {
 		if(dice1 == 5 && dice2 == dice1) {
 			endTurn.setVisible(true);
@@ -1391,7 +1575,7 @@ public class Board extends JFrame{
 	public void move(JPanel lable, int x, String color) {
 		
 		//busca por todo
-		for(int i = 0; i<=67; i++) {
+		for(int i = 0; i<=99; i++) {
 			if(colorPos[i][0] == color) {
 				if(lable.getX() == boardp[i][0].getX() && lable.getY() == boardp[i][0].getY()) {
 					colorPos[i][0] = "";
@@ -1491,7 +1675,6 @@ public class Board extends JFrame{
 	public void check(JPanel lable, String color) {
 		int x;
 		int y;
-		
 
 
 		if(Arrays.asList(yellowb).contains(lable.getLocation())) {
@@ -1512,7 +1695,7 @@ public class Board extends JFrame{
 		}
 		
 		else {
-			for(x = 0; x<=67; x++) {
+			for(x = 0; x<=99; x++) {
 				if(colorPos[x][0] == color) {
 					if(lable.getX() == boardp[x][0].getX() && lable.getY() == boardp[x][0].getY()) {
 						y = 0;
@@ -1531,12 +1714,16 @@ public class Board extends JFrame{
 			int dest1 = x+dice1;
 			int dest2 = x+dice2;
 			
-			if(dest1 > 67) {
-				dest1 = dest1 - 68;
+			if(x > 60 && x < 68 && color != "yellow") {
+				if(dest1 > 67) {
+					dest1 = dest1 - 68;
+				}
+				if(dest2 > 67) {
+					dest2 = dest2 - 68;
+				}
 			}
-			if(dest2 > 67) {
-				dest2 = dest2 - 68;
-			}
+
+
 			
 			showDice1.setVisible(true);
 			showDice1.setText(String.valueOf(dice1));
@@ -1548,12 +1735,58 @@ public class Board extends JFrame{
 				if(i == 68) {
 					i = 0;
 				}
-				if(colorPos[i][1] != "") {
+				
+				if(color == "yellow" && i > 63) {
+					int t;
+					if(dest1 < 92) {
+						t = dest1 - 63;
+						t = t + 91;
+					}
+					else {
+						t = dest1;
+					}
+					if(t > 99) {
+						showDice1.setVisible(false);
+						break;
+					}
+					for(int d = 92; d <= t; d++) {
+						if(colorPos[d][1] != "")
+						{
+							showDice1.setVisible(false);
+						}
+						dest1 = d;
+					}
+					i = dest1;
+				}
+				else if(color == "red" && (i == 30 || i > 75)) {
+					int t;
+					if(dest1 < 76) {
+						t = dest1 - 29;
+						t = t + 75;
+					}
+					else {
+						t = dest1;
+					}
+					if(t > 83) {
+						showDice1.setVisible(false);
+						break;
+					}
+					for(int d = 76; d <= t; d++) {
+						if(colorPos[d][1] != "")
+						{
+							showDice1.setVisible(false);
+						}
+						dest1 = d;
+					}
+					i = dest1;
+				}
+
+				
+				else if(colorPos[i][1] != "") {
 					showDice1.setVisible(false);
 				}
-				if(color == "yellow" && i == 63) {
-					
-				}
+
+
 				
 			}
 			
@@ -1561,7 +1794,52 @@ public class Board extends JFrame{
 				if(i == 68) {
 					i = 0;
 				}
-				if(colorPos[i][1] != "") {
+				if(color == "yellow" && i > 63) {
+					int t;
+					if(dest2 < 92) {
+						t = dest2 - 63;
+						t = t + 91;
+					}
+					else {
+						t = dest2;
+					}
+					if(t > 99) {
+						showDice2.setVisible(false);
+						break;
+					}
+					for(int d = 92; d <= t; d++) {
+						if(colorPos[d][1] != "")
+						{
+							showDice2.setVisible(false);
+						}
+						dest2 = d;
+					}
+					i = dest2;
+				}
+				else if(color == "red" && (i == 30 || i > 75)) {
+					int t;
+					if(dest2 < 76) {
+						t = dest2 - 29;
+						t = t + 75;
+					}
+					else {
+						t = dest2;
+					}
+					if(t > 83) {
+						showDice2.setVisible(false);
+						break;
+					}
+					for(int d = 76; d <= t; d++) {
+						if(colorPos[d][1] != "")
+						{
+							showDice2.setVisible(false);
+						}
+						dest2 = d;
+					}
+					i = dest2;
+				}
+
+				else if(colorPos[i][1] != "") {
 					showDice2.setVisible(false);
 				}
 			}
@@ -1739,6 +2017,8 @@ public class Board extends JFrame{
 	private Point[] blueb = {new Point(603,130), new Point(603,80),
 								new Point(553,80), new Point(553,130)};
 	
+	
+	private boolean allowDoubles = false;
 	private int yellowBN = 4;
 	private int redBN = 4;
 	private int blueBN = 4;
@@ -1776,6 +2056,7 @@ public class Board extends JFrame{
 	private int lastDice = 0;
 	private int[] safespots = {0, 7, 12, 17, 24, 29, 34, 41, 46, 51, 58, 63};
 	
+	private int[][] yellowPos= { {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}};
 	private Point[][] yellowEntrance = { {new Point(473,355), new Point(473,317)},
 			{new Point(503,355), new Point(503,317)},
             {new Point(533,355), new Point(533,317)},
@@ -1790,6 +2071,7 @@ public class Board extends JFrame{
 	private Point[][] greenEntrance = { {new Point(829,679), new Point(794,679)},
 			{new Point(829,649), new Point(794,649)},
             {new Point(829,619), new Point(794,619)},
+            {new Point(829,590), new Point(794,590)},
             {new Point(829,562), new Point(794,562)},
             {new Point(829,534), new Point(794,534)},
             {new Point(829,505), new Point(794,505)},
@@ -1887,8 +2169,39 @@ public class Board extends JFrame{
 			{"",""},
 			{"",""},
 			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
+			{"",""},
 			{"",""}
-			
 	};
 	
 	private Point[][] boardp = {{new Point(591,395), new Point(591,433)},
@@ -1975,6 +2288,46 @@ public class Board extends JFrame{
 			{new Point(503,395), new Point(503,433)},
 			{new Point(533,395), new Point(533,433)},
 			{new Point(562,395), new Point(562,433)},
+			
+			//Green
+			{new Point(829,649), new Point(794,649)},
+            {new Point(829,619), new Point(794,619)},
+            {new Point(829,590), new Point(794,590)},
+            {new Point(829,562), new Point(794,562)},
+            {new Point(829,534), new Point(794,534)},
+            {new Point(829,505), new Point(794,505)},
+            {new Point(829,475), new Point(794,475)},
+            {new Point(829,425), new Point(794,425)},
+            
+            //Red
+            {new Point(1155,322), new Point(1155,360)},
+            {new Point(1125,322), new Point(1125,360)},
+            {new Point(1095,322), new Point(1095,360)},
+            {new Point(1065,322), new Point(1065,360)},
+            {new Point(1036,322), new Point(1036,360)},
+            {new Point(1008,322), new Point(1008,360)},
+            {new Point(978,322), new Point(978,360)},
+            {new Point(948,322), new Point(948,360)},
+            
+            //Blue
+            {new Point(796,29), new Point(831,29)},
+            {new Point(796,59), new Point(831,59)},
+            {new Point(796,88), new Point(831,88)},
+            {new Point(796,117), new Point(831,117)},
+            {new Point(796,144), new Point(831,144)},
+            {new Point(796,173), new Point(831,173)},
+            {new Point(796,203), new Point(831,203)},
+            {new Point(796,253), new Point(831,253)},
+            
+            //Yellow
+            {new Point(503,355), new Point(503,317)},
+            {new Point(533,355), new Point(533,317)},
+            {new Point(562,355), new Point(562,317)},
+            {new Point(591,355), new Point(591,317)},
+            {new Point(619,355), new Point(619,317)},
+            {new Point(648,355), new Point(648,317)},
+            {new Point(678,355), new Point(678,317)},
+            {new Point(725,355), new Point(725,317)}
 };
 	
 }

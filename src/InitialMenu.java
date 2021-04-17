@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 
 public class InitialMenu extends JFrame{
@@ -25,10 +27,10 @@ public class InitialMenu extends JFrame{
 		JPanel playerQuestion = new JPanel();
 		
 		playerQuestion.setLocation(400,300);
-		playerQuestion.setSize(600,30);
+		playerQuestion.setSize(600,50);
 		playerQuestion.setBackground(backgroundColor);
 		JLabel howMany = new JLabel("Please choose a number of players");
-		howMany.setFont(new Font("Calibri",Font.PLAIN,25));
+		howMany.setFont(new Font("Calibri",Font.PLAIN,40));
 		
 		playerQuestion.add(howMany);
 		background.add(playerQuestion);
@@ -123,6 +125,7 @@ public class InitialMenu extends JFrame{
 	public void createBackground() {
 		background.setLayout(null);
 		background.setBackground(backgroundColor);
+		creators();
 		
 		setTitle("Menu");
 		setSize(1400,800);
@@ -134,8 +137,20 @@ public class InitialMenu extends JFrame{
 	
 	public void creators() {
 		JPanel creatorPanel = new JPanel();
+		creatorPanel.setSize(400,210);
+		creatorPanel.setLocation(1000, 0);
+		creatorPanel.setBackground(backgroundColor);
+		creatorPanel.setBorder(border);
+		
+		JLabel creatorLabel = new JLabel("<html>Created By:<br/> Diego De Saint Malo <br/> Raul Rodriguez <br/> Ricardo Lasso </html?");
+		creatorLabel.setSize(creatorPanel.getSize());
+		creatorLabel.setLocation(0,0);
+		creatorLabel.setFont(new Font("Calibri",Font.PLAIN,40));
 		
 		
+		creatorPanel.add(creatorLabel);
+		
+		background.add(creatorPanel);
 	}
 	
     public void addActionListener(ActionListener listener) {
@@ -152,6 +167,7 @@ public class InitialMenu extends JFrame{
     }
     
     
+    static Border border = new LineBorder(Color.BLACK, 2, true);
     private JButton startButton = new JButton("START GAME!");
 	private Color backgroundColor = new Color(250,225,192);
 	private JPanel background = new JPanel();
